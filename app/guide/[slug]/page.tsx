@@ -246,7 +246,7 @@ const articles: Record<string, {
           쉽게 말해, 살아계실 때 잘 모시듯 돌아가신 후에도 공경을 다하는 것이 제사의 본질입니다.
         </p>
         <p className="text-gray-700 leading-relaxed">
-          민간에서는 <strong>"돌아가신 분이 일 년에 한 번 차려준 음식을 드시러 오신다"</strong>고 믿어왔습니다.
+          민간에서는 <strong>&ldquo;돌아가신 분이 일 년에 한 번 차려준 음식을 드시러 오신다&rdquo;</strong>고 믿어왔습니다.
           기일에 제사를 지내지 않으면 그 한 끼를 굶으신다는 믿음이 대대로 이어져 온 것입니다.
         </p>
 

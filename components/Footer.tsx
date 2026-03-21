@@ -34,12 +34,14 @@ export default function Footer() {
               <li><Link href="/temples" className="hover:text-white transition-colors">사찰 안내</Link></li>
               <li><Link href="/guide" className="hover:text-white transition-colors">제사 문화 가이드</Link></li>
               <li><Link href="/contact" className="hover:text-white transition-colors">무료 상담 신청</Link></li>
+              <li><Link href="/privacy" className="hover:text-white transition-colors">개인정보 처리방침</Link></li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-green-700 mt-10 pt-6 text-center text-green-300 text-xs">
-          © 2024 안심제사. All rights reserved. | ansimjesa.co.kr
+          © 2026 안심제사. All rights reserved. | ansimjesa.co.kr |{" "}
+          <Link href="/privacy" className="hover:text-white transition-colors underline">개인정보 처리방침</Link>
         </div>
       </div>
     </footer>

@@ -216,6 +216,33 @@ export default function Home() {
                 rows={4}
                 className="w-full border border-gray-200 rounded-xl px-5 py-4 text-sm outline-none focus:border-[#2D6A4F] transition-colors resize-none"
               />
+              <div className="space-y-3 pt-2">
+                <div className="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    id="privacy-agree-main"
+                    className="mt-1 w-4 h-4 accent-[#2D6A4F]"
+                    required
+                  />
+                  <label htmlFor="privacy-agree-main" className="text-sm text-gray-600 leading-relaxed">
+                    <a href="/privacy" target="_blank" className="underline font-medium" style={{ color: "#2D6A4F" }}>
+                      개인정보 처리방침
+                    </a>
+                    을 읽었으며, 상담 목적의 개인정보 수집·이용에 동의합니다. (필수)
+                  </label>
+                </div>
+                <div className="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    id="sensitive-agree-main"
+                    className="mt-1 w-4 h-4 accent-[#2D6A4F]"
+                    required
+                  />
+                  <label htmlFor="sensitive-agree-main" className="text-sm text-gray-600 leading-relaxed">
+                    제사·봉안 등 종교적 신념에 관한 민감정보 처리에 별도 동의합니다. (필수)
+                  </label>
+                </div>
+              </div>
               <button
                 type="submit"
                 className="w-full py-4 rounded-xl text-white font-bold text-lg hover:opacity-90 transition-all"
