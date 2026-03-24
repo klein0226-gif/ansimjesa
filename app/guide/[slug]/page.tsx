@@ -2,6 +2,51 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import type { Metadata } from "next";
+
+const articleMeta: Record<string, { title: string; description: string }> = {
+  "jesa-wital": {
+    title: "제사를 절에 맡기면 어떻게 진행되나요?",
+    description: "영구위탁 제사의 전 과정을 쉽게 설명합니다. 계약부터 매년 기일 진행까지 한눈에 확인하세요.",
+  },
+  "49jae-biyong": {
+    title: "49재 비용 총정리 — 얼마나 드나요?",
+    description: "규모별, 사찰별 49재 비용을 투명하게 공개합니다. 절충형 진행 방법도 안내합니다.",
+  },
+  "chundojae-timing": {
+    title: "천도재는 언제 지내야 할까요?",
+    description: "천도재가 필요한 구체적인 상황과 진행 방식을 알아봅니다. 49재와의 차이점도 정리했습니다.",
+  },
+  "jesa-history": {
+    title: "제사는 왜 지내는 걸까요? — 유교와 제사의 역사",
+    description: "고려 말부터 조선시대까지 이어진 제사 문화의 기원과 의미를 쉽게 풀어드립니다.",
+  },
+  "bonandang": {
+    title: "납골봉안당, 사찰 봉안당이 왜 좋을까요?",
+    description: "일반 납골당과 사찰 봉안당의 차이점. 제사와 봉안을 한 곳에서 해결하는 방법을 안내합니다.",
+  },
+  "49jae-meaning": {
+    title: "49일, 왜 49일인가요? — 불교의 49재 의미",
+    description: "7번의 7일 심판, 중유의 개념. 불교에서 49재를 지내는 철학적 이유를 쉽게 설명합니다.",
+  },
+};
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const meta = articleMeta[slug];
+  if (!meta) return {};
+  return {
+    title: meta.title,
+    description: meta.description,
+    openGraph: {
+      title: `${meta.title} — 안심제사`,
+      description: meta.description,
+      url: `https://ansimjesa.co.kr/guide/${slug}`,
+      images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    },
+    alternates: { canonical: `https://ansimjesa.co.kr/guide/${slug}` },
+  };
+}
 
 const articles: Record<string, {
   category: string;

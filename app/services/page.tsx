@@ -1,6 +1,19 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "서비스 안내 — 제사 영구위탁·납골봉안당·49재·천도재",
+  description: "안심제사의 모든 서비스를 안내합니다. 제사 영구위탁, 납골봉안당 안치, 49재, 천도재까지 계약된 사찰을 통해 정성껏 진행합니다.",
+  openGraph: {
+    title: "서비스 안내 — 안심제사",
+    description: "제사 영구위탁, 납골봉안당, 49재, 천도재 — 안심제사가 제공하는 모든 서비스를 확인하세요.",
+    url: "https://ansimjesa.co.kr/services",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
+  alternates: { canonical: "https://ansimjesa.co.kr/services" },
+};
 
 const services = [
   {

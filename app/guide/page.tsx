@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -50,6 +53,13 @@ const articles = [
 const categories = ["전체", "제사 문화", "제사 위탁", "49재", "천도재", "납골봉안당"];
 
 export default function GuidePage() {
+  const [selectedCategory, setSelectedCategory] = useState("전체");
+
+  const filteredArticles =
+    selectedCategory === "전체"
+      ? articles
+      : articles.filter((a) => a.category === selectedCategory);
+
   return (
     <>
       <Header />
@@ -66,8 +76,13 @@ export default function GuidePage() {
             {categories.map((c) => (
               <button
                 key={c}
-                className="px-4 py-2 rounded-full text-sm font-medium border transition-all hover:bg-[#2D6A4F] hover:text-white hover:border-[#2D6A4F]"
-                style={{ borderColor: "#2D6A4F", color: "#2D6A4F" }}
+                onClick={() => setSelectedCategory(c)}
+                className="px-4 py-2 rounded-full text-sm font-medium border transition-all"
+                style={
+                  selectedCategory === c
+                    ? { backgroundColor: "#2D6A4F", color: "#ffffff", borderColor: "#2D6A4F" }
+                    : { borderColor: "#2D6A4F", color: "#2D6A4F" }
+                }
               >
                 {c}
               </button>
@@ -76,7 +91,7 @@ export default function GuidePage() {
 
           {/* 아티클 목록 */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {articles.map((a) => (
+            {filteredArticles.map((a) => (
               <Link
                 key={a.slug}
                 href={`/guide/${a.slug}`}
@@ -97,6 +112,12 @@ export default function GuidePage() {
               </Link>
             ))}
           </div>
+
+          {filteredArticles.length === 0 && (
+            <div className="text-center py-12 text-gray-400">
+              <p className="text-lg">해당 카테고리의 글이 아직 없습니다.</p>
+            </div>
+          )}
 
           <div className="text-center mt-14 p-10 rounded-2xl" style={{ backgroundColor: "#F5F0E8" }}>
             <h2 className="font-serif text-2xl font-bold mb-3">더 궁금한 게 있으신가요?</h2>

@@ -1,6 +1,19 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "사찰 안내 — 도심·전통·현대식 봉안당 사찰 비교",
+  description: "도심 접근성, 전통 분위기, 현대식 시설 — 각 사찰의 특징을 비교하고 나에게 맞는 사찰을 찾아보세요.",
+  openGraph: {
+    title: "사찰 안내 — 안심제사",
+    description: "각 사찰마다 특별한 장점이 있습니다. 어느 사찰이 맞는지 비교해보세요.",
+    url: "https://ansimjesa.co.kr/temples",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
+  alternates: { canonical: "https://ansimjesa.co.kr/temples" },
+};
 
 const temples = [
   {
@@ -35,6 +48,17 @@ const temples = [
     features: ["최신식 봉안당", "연중 청결 관리", "냉난방 완비", "유족 휴게 공간"],
     best: "납골봉안당과 제사를 함께 원하는 분",
     price: "제사 위탁 연 35만원~",
+  },
+  {
+    slug: "baekcheonsa",
+    name: "와룡산 백천사",
+    tag: "1,300년 전통",
+    emoji: "🏔️",
+    location: "경남 사천시",
+    desc: "신라 문무왕(663년) 시절 창건된 1,300년 역사의 고찰. 동양 최대 목조 와불상이 있으며, 와룡산 자락의 청정한 자연 속에서 고인을 영구히 모실 수 있습니다. 극락전 추모관에서 봉안과 제사를 함께 해결하세요.",
+    features: ["1,300년 역사 고찰", "동양 최대 목조 와불상", "영구 봉안 가능 (연장 무제한)", "극락전 추모관 (극락1호~8호)", "부도탑 봉안 가능", "입장료·주차 무료", "관리비 연 3만원 (영구 50만원)", "와룡산 청정 자연환경"],
+    best: "영구 봉안을 원하는 분, 경남 지역 거주자, 전통과 자연을 중시하는 분",
+    price: "개인 250만원~ / 부부 900만원~ / 부도탑 1,000만원~",
   },
 ];
 

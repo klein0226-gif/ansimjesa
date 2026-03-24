@@ -35,6 +35,11 @@ export default function Footer() {
               <li><Link href="/guide" className="hover:text-white transition-colors">제사 문화 가이드</Link></li>
               <li><Link href="/contact" className="hover:text-white transition-colors">무료 상담 신청</Link></li>
               <li><Link href="/privacy" className="hover:text-white transition-colors">개인정보 처리방침</Link></li>
+              <li>
+                <a href="tel:0000-0000" className="hover:text-white transition-colors">
+                  전화 상담: 0000-0000
+                </a>
+              </li>
             </ul>
           </div>
         </div>

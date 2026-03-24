@@ -59,6 +59,29 @@ interface EncryptedInquiry {
   createdAt: string;
 }
 
+/** 한국 전화번호 형식 검증 (서버 사이드) */
+function isValidKoreanPhone(phone: string): boolean {
+  const cleaned = phone.replace(/[\s-]/g, "");
+  const mobileRegex = /^01[016789]\d{7,8}$/;
+  const seoulRegex = /^02\d{7,8}$/;
+  const localRegex = /^0[3-6][1-9]\d{7,8}$/;
+  const tollFreeRegex = /^(080|1[5-9]\d{2}|15\d{2})\d{4,6}$/;
+  return mobileRegex.test(cleaned) || seoulRegex.test(cleaned) || localRegex.test(cleaned) || tollFreeRegex.test(cleaned);
+}
+
+/** 관리자 인증 확인 */
+function isAuthorizedAdmin(req: NextRequest): boolean {
+  const adminKey = process.env.ADMIN_API_KEY;
+  if (!adminKey) return false;
+  const authHeader = req.headers.get("x-admin-key");
+  if (!authHeader) return false;
+  // 타이밍 공격 방지를 위한 상수 시간 비교
+  const a = Buffer.from(authHeader);
+  const b = Buffer.from(adminKey);
+  if (a.length !== b.length) return false;
+  return crypto.timingSafeEqual(a, b);
+}
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -67,6 +90,14 @@ export async function POST(req: NextRequest) {
     if (!name || !phone) {
       return NextResponse.json(
         { error: "성함과 연락처는 필수입니다." },
+        { status: 400 }
+      );
+    }
+
+    // 전화번호 형식 검증 (서버 사이드)
+    if (!isValidKoreanPhone(phone)) {
+      return NextResponse.json(
+        { error: "올바른 전화번호 형식이 아닙니다. (예: 010-0000-0000)" },
         { status: 400 }
       );
     }
@@ -118,6 +149,51 @@ export async function POST(req: NextRequest) {
     fs.writeFileSync(DATA_FILE, JSON.stringify(inquiries, null, 2), "utf-8");
 
     return NextResponse.json({ success: true, id: inquiry.id });
+  } catch {
+    return NextResponse.json(
+      { error: "서버 오류가 발생했습니다." },
+      { status: 500 }
+    );
+  }
+}
+
+/** 관리자용 상담 데이터 조회 API */
+export async function GET(req: NextRequest) {
+  try {
+    // 인증 확인
+    if (!isAuthorizedAdmin(req)) {
+      return NextResponse.json(
+        { error: "인증이 필요합니다. x-admin-key 헤더를 확인해주세요." },
+        { status: 401 }
+      );
+    }
+
+    // 데이터 파일 확인
+    if (!fs.existsSync(DATA_FILE)) {
+      return NextResponse.json({ inquiries: [], total: 0 });
+    }
+
+    const raw = fs.readFileSync(DATA_FILE, "utf-8");
+    const encrypted: EncryptedInquiry[] = JSON.parse(raw);
+
+    // 복호화하여 반환
+    const decrypted = encrypted.map((item) => ({
+      id: item.id,
+      name: decrypt(item.name),
+      phone: decrypt(item.phone),
+      service: item.service,
+      message: item.message ? decrypt(item.message) : "",
+      consentAt: item.consentAt,
+      createdAt: item.createdAt,
+    }));
+
+    // 최신순 정렬
+    decrypted.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+
+    return NextResponse.json({
+      inquiries: decrypted,
+      total: decrypted.length,
+    });
   } catch {
     return NextResponse.json(
       { error: "서버 오류가 발생했습니다." },
