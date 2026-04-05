@@ -15,7 +15,7 @@ export default function BaekcheonsaPage() {
       <main className="pt-0 pb-0">
         {/* 히어로 배너 */}
         <div className="relative h-[60vh] min-h-[400px] flex items-end" style={{
-          backgroundImage: "url('/temples/baekcheonsa_hero.png')",
+          backgroundImage: "url('/temples/baekcheonsa_hero.jpg')",
           backgroundSize: "cover", backgroundPosition: "center"
         }}>
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
@@ -38,7 +38,7 @@ export default function BaekcheonsaPage() {
                 <p className="text-gray-600 leading-relaxed">정암 스님이 지역 주민들과 소통하며 정성스럽게 제사를 모시고 계십니다. 어린이 불교 교육과 봉사 활동에도 앞장서는 따뜻한 사찰입니다.</p>
               </div>
               <div className="rounded-2xl overflow-hidden shadow-lg">
-                <img src="/temples/baekcheonsa_sub.png" alt="baekcheonsa 경내" className="w-full h-[300px] object-cover" />
+                <img src="/temples/baekcheonsa_sub.jpg" alt="baekcheonsa 경내" className="w-full h-[300px] object-cover" />
               </div>
             </div>
           </section>
