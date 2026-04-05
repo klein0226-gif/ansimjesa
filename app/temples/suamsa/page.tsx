@@ -74,7 +74,7 @@ export default function SuamsaPage() {
 
           <div className="text-center">
             <Link href="/contact" className="inline-block px-8 py-4 rounded-full text-white font-bold shadow-md hover:opacity-90 transition-all" style={{ backgroundColor: "#2D6A4F" }}>
-              수암사에서 상담받기
+              무료 상담 신청하기
             </Link>
           </div>
         </div>
