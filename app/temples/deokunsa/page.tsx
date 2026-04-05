@@ -25,7 +25,7 @@ export default function DeokunsaPage() {
             <p className="text-gray-700 leading-relaxed">김해 시내에서 가까운 아담하고 정갈한 사찰입니다. 바쁜 일상 속에서도 부담 없이 방문할 수 있으며, 경내가 잘 가꿔져 조용히 산책하기에도 좋습니다. 혜원 스님이 지역 주민들과 소통하며 정성스럽게 제사를 모시고 계십니다.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <div className="max-w-2xl mx-auto mb-8">
             <div className="rounded-2xl border-2 border-green-100 p-6">
               <h3 className="font-bold text-lg mb-4" style={{ color: "#2D6A4F" }}>👍 이런 점이 좋습니다</h3>
               <ul className="space-y-2 text-gray-700">
@@ -36,14 +36,7 @@ export default function DeokunsaPage() {
                 <li>✓ 주차 편리</li>
               </ul>
             </div>
-            <div className="rounded-2xl border-2 border-orange-100 p-6">
-              <h3 className="font-bold text-lg mb-4 text-orange-600">⚠️ 참고하세요</h3>
-              <ul className="space-y-2 text-gray-700">
-                <li>• 대형 사찰 대비 규모가 작습니다</li>
-                <li>• 봉안당 시설은 별도 문의가 필요합니다</li>
-              </ul>
-            </div>
-          </div>
+            
 
           <div className="rounded-2xl border-2 border-gray-100 p-8 mb-8">
             <h3 className="font-serif text-xl font-bold mb-4">제공 서비스</h3>
