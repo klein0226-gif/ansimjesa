@@ -76,7 +76,7 @@ export default function TemplesPage() {
 
           <div className="space-y-8">
             {temples.map((t) => (
-              <div key={t.slug} className="rounded-2xl border-2 border-gray-100 hover:border-[#2D6A4F] transition-all p-8 md:p-10">
+              <Link key={t.slug} href={`/temples/${t.slug}`} className="block rounded-2xl border-2 border-gray-100 hover:border-[#2D6A4F] transition-all p-8 md:p-10 no-underline cursor-pointer">
                 <div className="flex flex-col md:flex-row gap-8">
                   <div className="text-6xl">{t.emoji}</div>
                   <div className="flex-1">
@@ -110,7 +110,7 @@ export default function TemplesPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
