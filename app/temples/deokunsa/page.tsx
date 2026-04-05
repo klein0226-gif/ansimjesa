@@ -59,6 +59,24 @@ export default function DeokunsaPage() {
             </div>
           </div>
 
+
+          <div className="rounded-2xl border-2 border-gray-100 p-8 mb-8">
+            <h3 className="font-serif text-xl font-bold mb-4">🗺️ 추천 여행 코스 — 제사도 하고, 여행도 하고</h3>
+            <div className="space-y-6">
+              <div className="bg-gray-50 rounded-xl p-5">
+                <p className="font-bold mb-2">코스 1: 가야 역사 탐방</p>
+                <p className="text-gray-600 text-sm">덕운사 참배 → 국립김해박물관 (가야 유물) → 수로왕릉 → 분성산 산책 → 김해 뒷고기 맛집</p>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-5">
+                <p className="font-bold mb-2">코스 2: 가족 나들이</p>
+                <p className="text-gray-600 text-sm">덕운사 참배 → 김해천문대 (별자리 관측) → 봉하마을 → 장유 카페거리</p>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-5">
+                <p className="font-bold mb-2">코스 3: 부산 연계</p>
+                <p className="text-gray-600 text-sm">덕운사 참배 → 김해공항 근처 맛집 → 부산 해운대 or 광안리 → 저녁 해산물</p>
+              </div>
+            </div>
+          </div>
           <div className="rounded-2xl p-8 mb-8" style={{ backgroundColor: "#2D6A4F10" }}>
             <h3 className="font-serif text-xl font-bold mb-2">비용 안내</h3>
             <p className="text-2xl font-bold" style={{ color: "#2D6A4F" }}>제사 위탁 연 30만원 / 영구위탁 150만원</p>

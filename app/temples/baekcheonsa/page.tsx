@@ -59,6 +59,24 @@ export default function BaekchonsaPage() {
             </div>
           </div>
 
+
+          <div className="rounded-2xl border-2 border-gray-100 p-8 mb-8">
+            <h3 className="font-serif text-xl font-bold mb-4">🗺️ 추천 여행 코스 — 제사도 하고, 여행도 하고</h3>
+            <div className="space-y-6">
+              <div className="bg-gray-50 rounded-xl p-5">
+                <p className="font-bold mb-2">코스 1: 바다 케이블카</p>
+                <p className="text-gray-600 text-sm">백천사 참배 → 사천바다케이블카 (크리스탈 캐빈!) → 삼천포대교 드라이브 → 활어회</p>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-5">
+                <p className="font-bold mb-2">코스 2: 섬 탐방</p>
+                <p className="text-gray-600 text-sm">백천사 참배 → 실안해변 카페거리 → 초양도 or 비토섬 → 백반 정식</p>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-5">
+                <p className="font-bold mb-2">코스 3: 항공우주</p>
+                <p className="text-gray-600 text-sm">백천사 참배 → 사천 항공우주박물관 → 남일대해수욕장 → 조개구이</p>
+              </div>
+            </div>
+          </div>
           <div className="rounded-2xl p-8 mb-8" style={{ backgroundColor: "#2D6A4F10" }}>
             <h3 className="font-serif text-xl font-bold mb-2">비용 안내</h3>
             <p className="text-2xl font-bold" style={{ color: "#2D6A4F" }}>봉안: 개인 250만원~ / 부부 900만원~ | 제사 위탁 연 30만원 / 영구 150만원</p>

@@ -59,6 +59,24 @@ export default function SuamsaPage() {
             </div>
           </div>
 
+
+          <div className="rounded-2xl border-2 border-gray-100 p-8 mb-8">
+            <h3 className="font-serif text-xl font-bold mb-4">🗺️ 추천 여행 코스 — 제사도 하고, 여행도 하고</h3>
+            <div className="space-y-6">
+              <div className="bg-gray-50 rounded-xl p-5">
+                <p className="font-bold mb-2">코스 1: 합천호 드라이브</p>
+                <p className="text-gray-600 text-sm">수암사 참배 → 합천호 드라이브 → 합천영상테마파크 → 합천 돼지국밥</p>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-5">
+                <p className="font-bold mb-2">코스 2: 황매산 힐링</p>
+                <p className="text-gray-600 text-sm">수암사 참배 → 황매산 (철쭉 시즌 강추!) → 해인사 (팔만대장경) → 산채비빔밥</p>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-5">
+                <p className="font-bold mb-2">코스 3: 호수 여유</p>
+                <p className="text-gray-600 text-sm">수암사 참배 → 합천댐 물문화관 → 합천호 카페 → 오리불고기</p>
+              </div>
+            </div>
+          </div>
           <div className="rounded-2xl p-8 mb-8" style={{ backgroundColor: "#2D6A4F10" }}>
             <h3 className="font-serif text-xl font-bold mb-2">비용 안내</h3>
             <p className="text-2xl font-bold" style={{ color: "#2D6A4F" }}>제사 위탁 연 30만원 / 영구위탁 150만원</p>
