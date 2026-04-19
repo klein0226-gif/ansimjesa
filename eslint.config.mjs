@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Local untracked agent workspace (Python venv with huge bundled JS).
+    "autoagent/**",
+    ".a5c/**",
   ]),
 ]);
 
