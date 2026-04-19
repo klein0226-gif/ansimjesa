@@ -1,19 +1,164 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #1A1A1A;
-  --green: #2D6A4F;
-  --green-light: #52B788;
-  --cream: #F5F0E8;
+  /* Navy palette (primary) */
+  --navy-900: #0B1628;
+  --navy-800: #0F1A2E;
+  --navy-700: #162544;
+  --navy-600: #1E3258;
+
+  /* Gold palette (accent) */
+  --gold-600: #A07E46;
+  --gold-500: #B89968;
+  --gold-400: #D4B98A;
+  --gold-100: #F2E9D3;
+
+  /* Ivory / paper (surfaces) */
+  --ivory: #F8F5EE;
+  --ivory-2: #EFE9DA;
+  --paper: #FBF9F3;
+
+  /* Ink (text) */
+  --ink: #15192A;
+  --ink-soft: #3B4254;
+  --ink-mute: #6B7085;
+
+  /* Lines */
+  --line: rgba(15, 26, 46, 0.12);
+  --line-gold: rgba(184, 153, 104, 0.35);
+
+  /* Legacy aliases kept for any remaining consumers (privacy page uses --ochre/--cinnabar/--paper-deep) */
+  --ochre: var(--gold-600);
+  --cinnabar: var(--gold-600);
+  --cinnabar-soft: var(--gold-500);
+  --paper-deep: var(--ivory-2);
+
+  --background: var(--paper);
+  --foreground: var(--ink);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+html, body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Noto Sans KR", "Apple SD Gothic Neo", system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-.font-serif {
-  font-family: 'Noto Serif KR', 'Apple SD Gothic Neo', Georgia, serif;
+/* Font helpers */
+.font-serif,
+.font-myeongjo {
+  font-family: "Noto Serif KR", "Apple SD Gothic Neo", Georgia, serif;
+}
+
+.font-sans-kr,
+.font-gowun {
+  font-family: "Noto Sans KR", "Apple SD Gothic Neo", system-ui, sans-serif;
+}
+
+.font-latin {
+  font-family: "Cormorant Garamond", "Noto Serif KR", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Eyebrow (italic Cormorant with gold rule) */
+.eyebrow {
+  font-family: "Cormorant Garamond", "Noto Serif KR", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+.eyebrow::before {
+  content: "";
+  width: 36px;
+  height: 1px;
+  background: var(--gold-500);
+}
+.eyebrow.center {
+  justify-content: center;
+}
+
+.rule-gold {
+  height: 1px;
+  background: var(--gold-500);
+  width: 56px;
+}
+
+/* Gold corners helper (decorative on cards) */
+.gold-corners {
+  position: relative;
+}
+.gold-corners::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 32px;
+  height: 32px;
+  border-top: 2px solid var(--gold-500);
+  border-left: 2px solid var(--gold-500);
+  pointer-events: none;
+}
+.gold-corners::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 32px;
+  height: 32px;
+  border-bottom: 2px solid var(--gold-500);
+  border-right: 2px solid var(--gold-500);
+  pointer-events: none;
+}
+
+/* Legacy helpers retained so unchanged pages keep working */
+.bg-hanji {
+  background: var(--paper);
+}
+.bg-hanji-deep {
+  background: var(--ivory-2);
+}
+.bg-ink {
+  background-color: var(--navy-800);
+  color: var(--ivory);
+}
+.border-ink { border-color: var(--navy-800); }
+.border-line { border-color: var(--line); }
+.border-cinnabar { border-color: var(--gold-500); }
+
+.divider-ornament {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--gold-600);
+}
+.divider-ornament::before,
+.divider-ornament::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold-500), transparent);
+}
+
+.seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Noto Serif KR", serif;
+  font-weight: 700;
+  color: var(--gold-400);
+  background: transparent;
+  border: 1px solid var(--gold-500);
+  letter-spacing: 0.02em;
+  border-radius: 0;
 }

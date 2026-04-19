@@ -1,143 +1,68 @@
-import Link from "next/link";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import type { Metadata } from "next";
+import TempleDetail from "@/components/TempleDetail";
 
 export const metadata: Metadata = {
   title: "김해 덕운사 — 안심제사",
-  description: "김해 시내 근교의 아담하고 정갈한 사찰. 혜원 스님이 정성스럽게 제사를 모십니다.",
+  description:
+    "경남 김해 주촌면의 추모 도량. 김해 시내에서 차로 15분, 사찰 특유의 경건한 분위기 속에서 가족끼리 조용히 조상을 모실 수 있습니다.",
+  openGraph: {
+    title: "김해 덕운사 — 안심제사",
+    description: "김해 시내에서 차로 15분, 조용한 추모 도량. 법성 스님 직접 집전.",
+    url: "https://ansimjesa.co.kr/temples/deokunsa",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
+  alternates: { canonical: "https://ansimjesa.co.kr/temples/deokunsa" },
 };
 
 export default function DeokunsaPage() {
   return (
-    <>
-      <Header />
-      <main className="pt-0 pb-0">
-        {/* 히어로 배너 */}
-        <div className="relative h-[60vh] min-h-[400px] flex items-end" style={{
-          backgroundImage: "url('/temples/deokunsa_hero.jpg')",
-          backgroundSize: "cover", backgroundPosition: "center"
-        }}>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-          <div className="relative z-10 max-w-5xl mx-auto px-6 pb-12 w-full">
-            <Link href="/temples" className="text-white/60 text-sm hover:text-white mb-4 inline-block">← 사찰 목록</Link>
-            <p className="text-sm font-medium tracking-widest mb-2" style={{ color: "#8BC34A" }}>DEOKUNSA TEMPLE</p>
-            <h1 className="font-serif text-4xl md:text-6xl font-bold text-white mb-3">김해 덕운사</h1>
-            <p className="text-white/80 text-lg max-w-xl">도심 근교의 편안함 속에서 정성스럽게 모시는 제사</p>
-          </div>
-        </div>
-
-        <div className="max-w-5xl mx-auto px-6 py-16">
-          {/* 소개 */}
-          <section className="mb-16">
-            <div className="grid md:grid-cols-2 gap-10 items-center">
-              <div>
-                <p className="text-sm font-medium tracking-widest mb-2" style={{ color: "#2D6A4F" }}>ABOUT</p>
-                <h2 className="font-serif text-3xl font-bold mb-4">사찰 소개</h2>
-                <p className="text-gray-600 leading-relaxed mb-4">김해 시내에서 가까운 아담하고 정갈한 사찰입니다. 바쁜 일상 속에서도 부담 없이 방문할 수 있으며, 경내가 잘 가꿔져 조용히 산책하기에도 좋습니다.</p>
-                <p className="text-gray-600 leading-relaxed">혜원 스님이 지역 주민들과 소통하며 정성스럽게 제사를 모시고 계십니다. 어린이 불교 교육과 봉사 활동에도 앞장서는 따뜻한 사찰입니다.</p>
-              </div>
-              <div className="rounded-2xl overflow-hidden shadow-lg">
-                <img src="/temples/deokunsa_sub.jpg" alt="deokunsa 경내" className="w-full h-[300px] object-cover" />
-              </div>
-            </div>
-          </section>
-
-          {/* 장점 */}
-          <section className="mb-16">
-            <p className="text-sm font-medium tracking-widest mb-2" style={{ color: "#2D6A4F" }}>WHY DEOKUNSA</p>
-            <h2 className="font-serif text-3xl font-bold mb-8">덕운사를 선택하는 이유</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                { icon: "🚗", title: "접근성 최고", desc: "김해 시내 근교, 주차 편리" },
-                { icon: "🌿", title: "정갈한 분위기", desc: "아담하고 잘 가꿔진 경내" },
-                { icon: "🙏", title: "혜원 스님 상주", desc: "지역 포교·봉사 활동 활발" },
-              ].map((item) => (
-                <div key={item.title} className="text-center p-6 rounded-2xl bg-gray-50">
-                  <p className="text-4xl mb-3">{item.icon}</p>
-                  <p className="font-bold text-lg mb-2">{item.title}</p>
-                  <p className="text-gray-500 text-sm">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* 서비스 */}
-          <section className="mb-16">
-            <p className="text-sm font-medium tracking-widest mb-2" style={{ color: "#2D6A4F" }}>SERVICES</p>
-            <h2 className="font-serif text-3xl font-bold mb-8">안심제사 서비스</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                { icon: "🕯️", name: "기제사", desc: "기일에 맞춰 진행하는 전통 제사. 제물 준비부터 독경까지 모든 절차를 정성껏 모십니다.", time: "약 1시간" },
-                { icon: "🌸", name: "추모제", desc: "특별한 날 고인을 추모하는 의식. 헌화와 함께 따뜻한 추모의 시간을 보내실 수 있습니다.", time: "약 40분" },
-                { icon: "📿", name: "천도제", desc: "고인의 영혼이 편안히 쉴 수 있도록 올리는 불교 의식. 스님의 정성스러운 독경으로 진행됩니다.", time: "약 1시간 30분" },
-              ].map((s) => (
-                <div key={s.name} className="p-6 rounded-2xl border-2 border-gray-100 hover:border-[#2D6A4F] transition-all">
-                  <p className="text-3xl mb-3">{s.icon}</p>
-                  <p className="font-bold text-xl mb-2">{s.name}</p>
-                  <p className="text-gray-500 text-sm mb-3">{s.desc}</p>
-                  <p className="text-xs text-gray-400">소요시간: {s.time}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* 비용 */}
-          <section className="mb-16">
-            <div className="rounded-2xl p-10 text-center" style={{ backgroundColor: "#2D6A4F" }}>
-              <p className="text-white/80 text-sm mb-2">PRICING</p>
-              <h2 className="font-serif text-3xl font-bold text-white mb-6">비용 안내</h2>
-              <div className="flex justify-center gap-8 flex-wrap">
-                <div className="bg-white/10 rounded-xl px-8 py-6">
-                  <p className="text-white/60 text-sm">연간 위탁</p>
-                  <p className="text-white text-3xl font-bold">30만원</p>
-                </div>
-                <div className="bg-white/10 rounded-xl px-8 py-6">
-                  <p className="text-white/60 text-sm">영구 위탁</p>
-                  <p className="text-white text-3xl font-bold">150만원</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* 여행 코스 */}
-          <section className="mb-16">
-            <p className="text-sm font-medium tracking-widest mb-2" style={{ color: "#2D6A4F" }}>TRAVEL</p>
-            <h2 className="font-serif text-3xl font-bold mb-8">추천 여행 코스</h2>
-            <div className="space-y-4">
-              {[
-                { name: "가야 역사 탐방", route: "덕운사 참배 → 국립김해박물관 → 수로왕릉 → 분성산 산책 → 김해 뒷고기 맛집" },
-                { name: "가족 나들이", route: "덕운사 참배 → 김해천문대 (별자리 관측) → 봉하마을 → 장유 카페거리" },
-                { name: "부산 연계", route: "덕운사 참배 → 김해공항 근처 맛집 → 부산 해운대 or 광안리 → 저녁 해산물" },
-              ].map((c) => (
-                <div key={c.name} className="bg-gray-50 rounded-xl p-5">
-                  <p className="font-bold mb-1">{c.name}</p>
-                  <p className="text-gray-600 text-sm">{c.route}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* 위치 */}
-          <section className="mb-16">
-            <p className="text-sm font-medium tracking-widest mb-2" style={{ color: "#2D6A4F" }}>LOCATION</p>
-            <h2 className="font-serif text-3xl font-bold mb-4">오시는 길</h2>
-            <p className="text-gray-600 mb-6">📍 경남 김해시 장유면</p>
-            <div className="rounded-2xl overflow-hidden border-2 border-gray-100">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52200!2d128.85!3d35.18!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z64a07ZW0IOuNleybtOyCrA!5e0!3m2!1sko!2skr!4v1" width="100%" height="300" style={{ border: 0 }} allowFullScreen loading="lazy" />
-            </div>
-          </section>
-
-          {/* CTA */}
-          <div className="text-center py-8">
-            <h2 className="font-serif text-2xl font-bold mb-4">정성스러운 제사, 덕운사에서 시작하세요</h2>
-            <Link href="/contact" className="inline-block px-10 py-4 rounded-full text-white font-bold shadow-lg hover:opacity-90 transition-all text-lg" style={{ backgroundColor: "#2D6A4F" }}>
-              무료 상담 신청하기
-            </Link>
-          </div>
-        </div>
-      </main>
-      <Footer />
-    </>
+    <TempleDetail
+      slug="deokunsa"
+      name="덕운사"
+      hanja="德雲寺"
+      region="경남 김해시 주촌면"
+      tagline="도심 근처, 조용한 한 칸"
+      oneliner="김해 시내에서 차로 15분. 번잡한 공설 추모원과 달리, 절 안에서 가족끼리 조용히 모실 수 있는 곳. 법성 스님 직접 집전."
+      heroImage="/temples/deokunsa_hero.jpg"
+      subImage="/temples/deokunsa_sub.jpg"
+      address="경상남도 김해시 주촌면 서부로1701번길 294-62"
+      lotNumber="주촌면 덕암리 149"
+      accessCar="남해고속도로 서김해IC에서 주촌 방향 10~15분. 김해추모의공원 인근."
+      accessTransit="김해 경전철 봉황역·부원역에서 택시 이용 (주촌면 덕암리 방향)."
+      foundedYear="현대 — 2017년 대웅전 중창"
+      foundedFounder="법성 스님 (현 주지)"
+      foundedHistory="2017년 11월 대웅전 부처님 점안대법회와 산사음악회를 봉행하며 현재의 면모를 갖추었다. 지역 포교와 추모 도량으로 꾸준히 성장하고 있다."
+      highlights={[
+        { title: "대웅전", body: "아미타불·미륵불·지장보살을 모신 중심 법당. 단청과 조각이 정교하다." },
+        { title: "산신각", body: "사찰 뒤편 높은 터에 있어 주촌면 일대를 한눈에 조망할 수 있다." },
+        { title: "범종각", body: "사물을 갖추고 정기 타종 의식을 봉행한다." },
+      ]}
+      facilities={[
+        {
+          title: "추모의 집 (봉안당)",
+          body:
+            "사찰에서 직접 관리하는 현대식 실내 봉안 시설. 불교 예법에 따라 영구 안치하며 매일의 기도로 극락왕생을 발원한다.",
+        },
+        {
+          title: "극락전",
+          body: "지장보살을 모시고 기일 제사·49재·천도재를 상시 봉행하는 전용 공간.",
+        },
+      ]}
+      stories={[
+        {
+          title: "조용한 추모",
+          body:
+            "인근에 김해시 공설 추모원이 있으나, 덕운사는 사찰 특유의 경건한 분위기 속에서 가족끼리 조용히 조상을 모실 수 있어 선호도가 높다.",
+        },
+        {
+          title: "덕암산의 사계",
+          body:
+            "대웅전 앞마당에서 바라보는 덕암산의 사계절 풍광이 일품. 특히 가을 단풍이 아름답다.",
+        },
+      ]}
+      best="김해·부산 거주자, 접근성과 프라이버시를 함께 원하는 분"
+      price="제사 위탁 연 30만원 · 영구위탁 150만원"
+      sources={["김해시청 문화관광", "BBS불교방송 뉴스", "덕운사 공식 홍보 자료"]}
+    />
   );
 }

@@ -1,143 +1,80 @@
-import Link from "next/link";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import type { Metadata } from "next";
+import TempleDetail from "@/components/TempleDetail";
 
 export const metadata: Metadata = {
-  title: "와룡산 백천사 — 안심제사",
-  description: "김해 시내 근교의 아담하고 정갈한 사찰. 정암 스님이 정성스럽게 제사를 모십니다.",
+  title: "사천 백천사 — 안심제사",
+  description:
+    "사천 와룡산 백천사 — 신라 663년 창건의 1,300년 고찰. 15m 목조 와불과 몸속 법당, 영남권 탑클래스 봉안 시설.",
+  openGraph: {
+    title: "사천 백천사 — 안심제사",
+    description: "1,300년 고찰, 몸속 법당의 기적. 영구 봉안 전문.",
+    url: "https://ansimjesa.co.kr/temples/baekcheonsa",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
+  alternates: { canonical: "https://ansimjesa.co.kr/temples/baekcheonsa" },
 };
 
 export default function BaekcheonsaPage() {
   return (
-    <>
-      <Header />
-      <main className="pt-0 pb-0">
-        {/* 히어로 배너 */}
-        <div className="relative h-[60vh] min-h-[400px] flex items-end" style={{
-          backgroundImage: "url('/temples/baekcheonsa_hero.jpg')",
-          backgroundSize: "cover", backgroundPosition: "center"
-        }}>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-          <div className="relative z-10 max-w-5xl mx-auto px-6 pb-12 w-full">
-            <Link href="/temples" className="text-white/60 text-sm hover:text-white mb-4 inline-block">← 사찰 목록</Link>
-            <p className="text-sm font-medium tracking-widest mb-2" style={{ color: "#8BC34A" }}>BAEKCHEONSA TEMPLE</p>
-            <h1 className="font-serif text-4xl md:text-6xl font-bold text-white mb-3">와룡산 백천사</h1>
-            <p className="text-white/80 text-lg max-w-xl">천년 고찰에서 모시는 영구 봉안</p>
-          </div>
-        </div>
-
-        <div className="max-w-5xl mx-auto px-6 py-16">
-          {/* 소개 */}
-          <section className="mb-16">
-            <div className="grid md:grid-cols-2 gap-10 items-center">
-              <div>
-                <p className="text-sm font-medium tracking-widest mb-2" style={{ color: "#2D6A4F" }}>ABOUT</p>
-                <h2 className="font-serif text-3xl font-bold mb-4">사찰 소개</h2>
-                <p className="text-gray-600 leading-relaxed mb-4">사천 와룡산 자락에 자리한 천년 고찰입니다. 오랜 역사와 깊은 전통이 살아있어 영구 봉안을 맡기기에 가장 신뢰할 수 있는 사찰입니다.</p>
-                <p className="text-gray-600 leading-relaxed">정암 스님이 천년의 전통을 이어가며 정성스럽게 제사를 모시고 계십니다. 남해 바다가 가까워 참배 후 힐링 여행도 함께 할 수 있습니다.</p>
-              </div>
-              <div className="rounded-2xl overflow-hidden shadow-lg">
-                <img src="/temples/baekcheonsa_sub.jpg" alt="baekcheonsa 경내" className="w-full h-[300px] object-cover" />
-              </div>
-            </div>
-          </section>
-
-          {/* 장점 */}
-          <section className="mb-16">
-            <p className="text-sm font-medium tracking-widest mb-2" style={{ color: "#2D6A4F" }}>WHY BAEKCHEONSA</p>
-            <h2 className="font-serif text-3xl font-bold mb-8">백천사를 선택하는 이유</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                { icon: "🏯", title: "천년 고찰", desc: "오랜 역사와 깊은 전통의 신뢰" },
-                { icon: "🌅", title: "남해 인접", desc: "바다가 가까워 힐링 여행 겸비" },
-                { icon: "🙏", title: "정암 스님 상주", desc: "천년 전통을 이어가는 수행자" },
-              ].map((item) => (
-                <div key={item.title} className="text-center p-6 rounded-2xl bg-gray-50">
-                  <p className="text-4xl mb-3">{item.icon}</p>
-                  <p className="font-bold text-lg mb-2">{item.title}</p>
-                  <p className="text-gray-500 text-sm">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* 서비스 */}
-          <section className="mb-16">
-            <p className="text-sm font-medium tracking-widest mb-2" style={{ color: "#2D6A4F" }}>SERVICES</p>
-            <h2 className="font-serif text-3xl font-bold mb-8">안심제사 서비스</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                { icon: "🕯️", name: "기제사", desc: "기일에 맞춰 진행하는 전통 제사. 제물 준비부터 독경까지 모든 절차를 정성껏 모십니다.", time: "약 1시간" },
-                { icon: "🌸", name: "추모제", desc: "특별한 날 고인을 추모하는 의식. 헌화와 함께 따뜻한 추모의 시간을 보내실 수 있습니다.", time: "약 40분" },
-                { icon: "📿", name: "천도제", desc: "고인의 영혼이 편안히 쉴 수 있도록 올리는 불교 의식. 스님의 정성스러운 독경으로 진행됩니다.", time: "약 1시간 30분" },
-              ].map((s) => (
-                <div key={s.name} className="p-6 rounded-2xl border-2 border-gray-100 hover:border-[#2D6A4F] transition-all">
-                  <p className="text-3xl mb-3">{s.icon}</p>
-                  <p className="font-bold text-xl mb-2">{s.name}</p>
-                  <p className="text-gray-500 text-sm mb-3">{s.desc}</p>
-                  <p className="text-xs text-gray-400">소요시간: {s.time}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* 비용 */}
-          <section className="mb-16">
-            <div className="rounded-2xl p-10 text-center" style={{ backgroundColor: "#2D6A4F" }}>
-              <p className="text-white/80 text-sm mb-2">PRICING</p>
-              <h2 className="font-serif text-3xl font-bold text-white mb-6">비용 안내</h2>
-              <div className="flex justify-center gap-8 flex-wrap">
-                <div className="bg-white/10 rounded-xl px-8 py-6">
-                  <p className="text-white/60 text-sm">연간 위탁</p>
-                  <p className="text-white text-3xl font-bold">30만원</p>
-                </div>
-                <div className="bg-white/10 rounded-xl px-8 py-6">
-                  <p className="text-white/60 text-sm">영구 위탁</p>
-                  <p className="text-white text-3xl font-bold">150만원</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* 여행 코스 */}
-          <section className="mb-16">
-            <p className="text-sm font-medium tracking-widest mb-2" style={{ color: "#2D6A4F" }}>TRAVEL</p>
-            <h2 className="font-serif text-3xl font-bold mb-8">추천 여행 코스</h2>
-            <div className="space-y-4">
-              {[
-                { name: "남해 바다 힐링", route: "백천사 참배 → 사천 실안해안도로 드라이브 → 삼천포대교 공원 → 해물탕 맛집" },
-                { name: "항공 우주 탐방", route: "백천사 참배 → 사천 항공우주박물관 → 진주 촉석루 → 진주 비빔밥 맛집" },
-                { name: "가족 나들이", route: "백천사 참배 → 와룡산 등산 → 사천 바다케이블카 → 노을 감상" },
-              ].map((c) => (
-                <div key={c.name} className="bg-gray-50 rounded-xl p-5">
-                  <p className="font-bold mb-1">{c.name}</p>
-                  <p className="text-gray-600 text-sm">{c.route}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* 위치 */}
-          <section className="mb-16">
-            <p className="text-sm font-medium tracking-widest mb-2" style={{ color: "#2D6A4F" }}>LOCATION</p>
-            <h2 className="font-serif text-3xl font-bold mb-4">오시는 길</h2>
-            <p className="text-gray-600 mb-6">📍 경남 사천시 백천사로 149</p>
-            <div className="rounded-2xl overflow-hidden border-2 border-gray-100">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52200!2d128.85!3d35.18!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z64a07ZW0IOuNleybtOyCrA!5e0!3m2!1sko!2skr!4v1" width="100%" height="300" style={{ border: 0 }} allowFullScreen loading="lazy" />
-            </div>
-          </section>
-
-          {/* CTA */}
-          <div className="text-center py-8">
-            <h2 className="font-serif text-2xl font-bold mb-4">정성스러운 제사, 백천사에서 시작하세요</h2>
-            <Link href="/contact" className="inline-block px-10 py-4 rounded-full text-white font-bold shadow-lg hover:opacity-90 transition-all text-lg" style={{ backgroundColor: "#2D6A4F" }}>
-              무료 상담 신청하기
-            </Link>
-          </div>
-        </div>
-      </main>
-      <Footer />
-    </>
+    <TempleDetail
+      slug="baekcheonsa"
+      name="백천사"
+      hanja="白川寺"
+      region="경남 사천시 와룡산"
+      tagline="1,300년 고찰, 몸속 법당의 기적"
+      oneliner="신라 663년 창건, 1,300년 역사. 15m 목조 와불 몸 안에 들어가 예불하고, TV 나온 목탁 치는 소(우보살)까지. 영남권 탑클래스 봉안 시설."
+      heroImage="/temples/baekcheonsa_hero.jpg"
+      subImage="/temples/baekcheonsa_sub.jpg"
+      address="경상남도 사천시 백천길 326-2"
+      lotNumber="사천시 백천동 108-1"
+      accessCar="사천IC에서 약 20분, 삼천포항에서 약 10분. 주차 시설 완비."
+      accessTransit="사천·삼천포 터미널에서 100번대 시내버스, 백천동 종점 하차."
+      foundedYear="663년 (신라 문무왕 3년)"
+      foundedFounder="의선대사"
+      foundedHistory="임진왜란 때 사명대사가 승군을 지휘하던 호국 도량이었으나 소실되었다. 현대에 성밀 스님의 대불사로 사천을 대표하는 대도량으로 재건되었다."
+      highlights={[
+        {
+          title: "약사여래 와불",
+          body:
+            "소나무를 깎아 만든 길이 15m의 세계 최대급 목조 와불. 부처님 몸속에 작은 법당이 있어 직접 들어가 예불할 수 있는 희귀 공간이다.",
+        },
+        {
+          title: "목조보살좌상",
+          body: "고려 말 제작된 유형문화유산. 정교한 조각이 일품이다.",
+        },
+        {
+          title: "대웅전과 산신각",
+          body: "와룡산의 기운을 그대로 받는 명당 자리.",
+        },
+      ]}
+      facilities={[
+        {
+          title: "극락전 추모관",
+          body: "호텔급 시설을 갖춘 실내 봉안당. 쾌적한 참배 환경으로 이름이 높다.",
+        },
+        {
+          title: "야외 납골탑",
+          body: "가족 단위로 모실 수 있는 납골탑이 경내 곳곳에 예술적으로 배치되어 있다.",
+        },
+        {
+          title: "효심원",
+          body: "체계적인 장례·제사 서비스를 제공하는 특화 시설.",
+        },
+      ]}
+      stories={[
+        {
+          title: "우보살",
+          body:
+            "혀로 입천장을 쳐서 실제 목탁 소리를 내는 소들. 여러 방송에 소개된 백천사의 명물이다.",
+        },
+        {
+          title: "산사 카페",
+          body: "사찰 입구 계곡을 낀 카페가 있어 방문객들의 휴식처가 된다.",
+        },
+      ]}
+      best="영구 봉안을 원하는 분, 전통과 시설·볼거리 모두 중시하는 분"
+      price="제사 위탁 연 30만원 · 영구위탁 150만원 · 봉안 개인 250만원~ · 부부 900만원~ · 부도탑 1,000만원~"
+      sources={["사천시청 문화관광", "백천사 공식 홈페이지", "연합뉴스·뉴스1 보도"]}
+    />
   );
 }

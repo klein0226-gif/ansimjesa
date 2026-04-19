@@ -3,20 +3,9 @@
 import { useState, FormEvent } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { isValidKoreanPhone } from "@/lib/phone";
+import { KAKAO_CHANNEL_URL } from "@/lib/constants";
 
-/** 한국 전화번호 형식 검증 (010-xxxx-xxxx, 02-xxx-xxxx, 0xx-xxx-xxxx 등) */
-function isValidKoreanPhone(phone: string): boolean {
-  const cleaned = phone.replace(/[\s-]/g, "");
-  // 휴대폰: 010, 011, 016, 017, 018, 019
-  // 유선: 02 (2~3자리 국번), 0xx (3~4자리 국번)
-  const mobileRegex = /^01[016789]\d{7,8}$/;
-  const seoulRegex = /^02\d{7,8}$/;
-  const localRegex = /^0[3-6][1-9]\d{7,8}$/;
-  const tollFreeRegex = /^(080|1[5-9]\d{2}|15\d{2})\d{4,6}$/;
-  return mobileRegex.test(cleaned) || seoulRegex.test(cleaned) || localRegex.test(cleaned) || tollFreeRegex.test(cleaned);
-}
-
-/** 전화번호 자동 포맷 (입력 시 하이픈 추가) */
 function formatPhoneNumber(value: string): string {
   const digits = value.replace(/\D/g, "");
   if (digits.startsWith("02")) {
@@ -30,6 +19,31 @@ function formatPhoneNumber(value: string): string {
   if (digits.length <= 11) return `${digits.slice(0, 3)}-${digits.slice(3, 7)}-${digits.slice(7)}`;
   return `${digits.slice(0, 3)}-${digits.slice(3, 7)}-${digits.slice(7, 11)}`;
 }
+
+const lblClass =
+  "font-latin block mb-2 uppercase";
+const lblStyle: React.CSSProperties = {
+  fontSize: 11,
+  letterSpacing: "0.22em",
+  color: "var(--gold-600)",
+  fontStyle: "italic",
+  fontWeight: 500,
+};
+
+const inputStyle: React.CSSProperties = {
+  width: "100%",
+  background: "transparent",
+  border: "none",
+  borderBottom: "1px solid var(--line)",
+  padding: "12px 0",
+  color: "var(--ink)",
+  fontSize: 15,
+  outline: "none",
+  transition: "border-color .2s ease",
+};
+
+const inputClass =
+  "focus:outline-none";
 
 export default function ContactPage() {
   const [name, setName] = useState("");
@@ -102,160 +116,423 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <main className="pt-24 pb-24 px-6">
-        <div className="max-w-xl mx-auto">
-          <div className="text-center mb-12">
-            <p className="text-sm font-medium tracking-widest mb-2" style={{ color: "#2D6A4F" }}>CONTACT</p>
-            <h1 className="font-serif text-4xl font-bold mb-3">무료 상담 신청</h1>
-            <p className="text-gray-500">어떤 서비스든 부담 없이 물어보세요. 24시간 내 연락드립니다.</p>
+      <main>
+        {/* Dark hero */}
+        <section
+          style={{
+            padding: "180px 0 100px",
+            color: "#F1EBD8",
+            background:
+              "radial-gradient(800px 400px at 80% 20%, rgba(184,153,104,0.15), transparent 60%), linear-gradient(180deg, #0B1628 0%, #0F1A2E 100%)",
+            borderBottom: "1px solid rgba(184,153,104,0.25)",
+          }}
+        >
+          <div className="max-w-[1240px] mx-auto px-6 md:px-10">
+            <span className="eyebrow">Free Consultation</span>
+            <h1
+              className="font-myeongjo"
+              style={{
+                fontWeight: 500,
+                fontSize: "clamp(40px, 4.8vw, 68px)",
+                color: "#F6EED9",
+                lineHeight: 1.15,
+                margin: "24px 0 24px",
+                maxWidth: 900,
+              }}
+            >
+              부담 없이 물어보세요,
+              <br />
+              <span className="font-latin" style={{ color: "var(--gold-400)", fontStyle: "italic" }}>
+                24시간 내 연락드립니다.
+              </span>
+            </h1>
+            <p style={{ color: "#C9C2AE", fontSize: 17, lineHeight: 1.9, maxWidth: 640 }}>
+              어떤 서비스가 맞을지 고민되실 때, 비용이 궁금하실 때, 절차가 헷갈리실 때 — 전문 상담원이 친절하게
+              안내해 드립니다. 상담은 전액 무료이며 비공개로 진행됩니다.
+            </p>
           </div>
+        </section>
 
-          {status === "success" ? (
-            <div className="text-center py-16">
-              <div className="text-5xl mb-4">🙏</div>
-              <h2 className="font-serif text-2xl font-bold mb-3" style={{ color: "#2D6A4F" }}>
-                상담 신청이 완료되었습니다
-              </h2>
-              <p className="text-gray-500 mb-8">24시간 내 연락드리겠습니다. 감사합니다.</p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <button
-                  onClick={() => setStatus("idle")}
-                  className="px-8 py-3 rounded-full text-white font-bold hover:opacity-90 transition-all"
-                  style={{ backgroundColor: "#2D6A4F" }}
+        {/* Contact body */}
+        <section style={{ padding: "0" }}>
+          <div
+            className="max-w-[1240px] mx-auto px-6 md:px-10 grid gap-12 lg:gap-20 items-start"
+            style={{
+              gridTemplateColumns: "minmax(0, 1fr)",
+              padding: "100px 24px",
+            }}
+          >
+            <div
+              className="lg:grid lg:gap-20 lg:items-start"
+              style={{ gridTemplateColumns: "1fr 1.2fr" }}
+            >
+              {/* Left — info panel */}
+              <aside className="flex flex-col gap-6">
+                <div
+                  style={{
+                    padding: 40,
+                    border: "1px solid var(--line-gold)",
+                    background: "var(--paper)",
+                  }}
                 >
-                  추가 문의하기
-                </button>
-                <a
-                  href="https://pf.kakao.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-8 py-3 rounded-full font-bold hover:opacity-90 transition-all inline-flex items-center justify-center gap-2"
-                  style={{ backgroundColor: "#FEE500", color: "#3C1E1E" }}
+                  <span className="eyebrow">Direct Line</span>
+                  <h4
+                    className="font-myeongjo mt-5"
+                    style={{
+                      fontWeight: 600,
+                      fontSize: 20,
+                      margin: "20px 0 14px",
+                      letterSpacing: "-0.01em",
+                    }}
+                  >
+                    전화 상담
+                  </h4>
+                  <div
+                    className="font-myeongjo"
+                    style={{
+                      fontSize: 32,
+                      color: "var(--gold-600)",
+                      letterSpacing: "0.02em",
+                      margin: "8px 0 6px",
+                    }}
+                  >
+                    상담 번호 준비 중
+                  </div>
+                  <div style={{ fontSize: 13, color: "var(--ink-mute)", lineHeight: 1.9 }}>
+                    평일 09:00 – 19:00
+                    <br />
+                    토요일 10:00 – 15:00
+                    <br />
+                    일요일 · 공휴일 휴무
+                  </div>
+                  <a
+                    href={KAKAO_CHANNEL_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2.5 mt-6"
+                    style={{
+                      background: "#FEE500",
+                      color: "#3C1E1E",
+                      padding: "14px 22px",
+                      fontWeight: 700,
+                      fontSize: 14,
+                      letterSpacing: "0.02em",
+                    }}
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#3C1E1E">
+                      <path d="M12 3C6.5 3 2 6.5 2 10.7c0 2.7 1.8 5.1 4.5 6.5-.1.5-.9 3.4-1 3.6 0 0 0 .2.1.2.1.1.2 0 .2 0 .3 0 3.6-2.3 4.2-2.7.6.1 1.3.1 2 .1 5.5 0 10-3.5 10-7.7C22 6.5 17.5 3 12 3z" />
+                    </svg>
+                    카카오톡으로 빠른 상담
+                  </a>
+                </div>
+
+                <div
+                  style={{
+                    padding: 40,
+                    background: "var(--navy-800)",
+                    color: "#EFE9DA",
+                    border: "1px solid rgba(184,153,104,0.4)",
+                  }}
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 3C6.477 3 2 6.463 2 10.691c0 2.726 1.802 5.117 4.512 6.467-.144.521-.928 3.36-.963 3.567 0 0-.02.166.088.229.108.063.235.015.235.015.31-.043 3.592-2.34 4.156-2.74.636.093 1.294.143 1.972.143 5.523 0 10-3.463 10-7.691C22 6.463 17.523 3 12 3Z" fill="#3C1E1E"/>
-                  </svg>
-                  카카오톡으로 빠른 상담
-                </a>
-              </div>
-            </div>
-          ) : (
-            <form className="space-y-4" onSubmit={handleSubmit}>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">성함 *</label>
-                <input
-                  type="text"
-                  placeholder="홍길동"
-                  required
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="w-full border border-gray-200 rounded-xl px-5 py-4 text-sm outline-none focus:border-[#2D6A4F] transition-colors"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">연락처 *</label>
-                <input
-                  type="tel"
-                  placeholder="010-0000-0000"
-                  required
-                  value={phone}
-                  onChange={(e) => handlePhoneChange(e.target.value)}
-                  onBlur={validatePhone}
-                  className={`w-full border rounded-xl px-5 py-4 text-sm outline-none transition-colors ${
-                    phoneError ? "border-red-400 focus:border-red-500" : "border-gray-200 focus:border-[#2D6A4F]"
-                  }`}
-                />
-                {phoneError && (
-                  <p className="text-red-500 text-xs mt-1">{phoneError}</p>
+                  <span className="eyebrow" style={{ color: "var(--gold-400)" }}>
+                    Privacy
+                  </span>
+                  <h4
+                    className="font-myeongjo"
+                    style={{
+                      fontWeight: 600,
+                      fontSize: 20,
+                      margin: "20px 0 14px",
+                      letterSpacing: "-0.01em",
+                      color: "#F6EED9",
+                    }}
+                  >
+                    민감한 문의는
+                    <br />
+                    비공개로 처리됩니다
+                  </h4>
+                  <p style={{ fontSize: 14, color: "#C9C2AE", lineHeight: 1.8 }}>
+                    제사 · 봉안 · 천도재 관련 문의는 종교적 신념에 관한 민감정보로 분류되어 엄격히 비공개
+                    관리되며, 상담 외 용도로 사용되지 않습니다.
+                  </p>
+                </div>
+              </aside>
+
+              {/* Right — form */}
+              <div
+                className="mt-10 lg:mt-0"
+                style={{
+                  background: "var(--paper)",
+                  border: "1px solid var(--line)",
+                  padding: "56px 40px",
+                }}
+              >
+                {status === "success" ? (
+                  <div className="text-center py-10">
+                    <div
+                      className="mx-auto mb-6 grid place-items-center font-myeongjo font-bold"
+                      style={{
+                        width: 72,
+                        height: 72,
+                        border: "1px solid var(--gold-500)",
+                        color: "var(--gold-600)",
+                        fontSize: 28,
+                      }}
+                      aria-hidden
+                    >
+                      安
+                    </div>
+                    <h2
+                      className="font-myeongjo"
+                      style={{
+                        fontWeight: 600,
+                        fontSize: 28,
+                        color: "var(--gold-600)",
+                        marginBottom: 12,
+                        letterSpacing: "-0.01em",
+                      }}
+                    >
+                      접수 완료
+                    </h2>
+                    <p style={{ color: "var(--ink-soft)", lineHeight: 1.9, marginBottom: 32 }}>
+                      24시간 안에 연락드립니다.
+                      <br />
+                      고맙습니다.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                      <button
+                        onClick={() => setStatus("idle")}
+                        style={{
+                          padding: "16px 28px",
+                          background: "var(--navy-800)",
+                          color: "var(--gold-400)",
+                          border: "1px solid var(--gold-500)",
+                          fontWeight: 600,
+                          fontSize: 14,
+                          letterSpacing: "0.1em",
+                        }}
+                      >
+                        추가 문의하기
+                      </button>
+                      <a
+                        href={KAKAO_CHANNEL_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2"
+                        style={{
+                          padding: "16px 28px",
+                          background: "#FEE500",
+                          color: "#3C1E1E",
+                          fontWeight: 700,
+                          fontSize: 14,
+                          letterSpacing: "0.02em",
+                        }}
+                      >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="#3C1E1E">
+                          <path d="M12 3C6.5 3 2 6.5 2 10.7c0 2.7 1.8 5.1 4.5 6.5-.1.5-.9 3.4-1 3.6 0 0 0 .2.1.2.1.1.2 0 .2 0 .3 0 3.6-2.3 4.2-2.7.6.1 1.3.1 2 .1 5.5 0 10-3.5 10-7.7C22 6.5 17.5 3 12 3z" />
+                        </svg>
+                        카카오톡 빠른 상담
+                      </a>
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <span className="eyebrow">Online Request</span>
+                    <h2
+                      className="font-myeongjo"
+                      style={{
+                        fontWeight: 600,
+                        fontSize: 32,
+                        margin: "20px 0 12px",
+                        letterSpacing: "-0.01em",
+                      }}
+                    >
+                      상담 신청서
+                    </h2>
+                    <p
+                      style={{
+                        color: "var(--ink-soft)",
+                        fontSize: 15,
+                        lineHeight: 1.8,
+                        margin: "0 0 40px",
+                        paddingBottom: 32,
+                        borderBottom: "1px solid var(--line-gold)",
+                      }}
+                    >
+                      아래 양식에 간단히 작성해 주시면, 24시간 이내 전문 상담원이 연락드립니다.
+                    </p>
+
+                    <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                          <label className={lblClass} style={lblStyle}>
+                            성함 / Name
+                          </label>
+                          <input
+                            type="text"
+                            placeholder="홍길동"
+                            required
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            style={inputStyle}
+                            className={inputClass}
+                          />
+                        </div>
+                        <div>
+                          <label className={lblClass} style={lblStyle}>
+                            연락처 / Contact
+                          </label>
+                          <input
+                            type="tel"
+                            placeholder="010-0000-0000"
+                            required
+                            value={phone}
+                            onChange={(e) => handlePhoneChange(e.target.value)}
+                            onBlur={validatePhone}
+                            style={{
+                              ...inputStyle,
+                              borderBottomColor: phoneError ? "#b91c1c" : "var(--line)",
+                            }}
+                            className={inputClass}
+                          />
+                          {phoneError && (
+                            <p style={{ fontSize: 12, color: "#b91c1c", marginTop: 6 }}>{phoneError}</p>
+                          )}
+                        </div>
+                      </div>
+                      <div>
+                        <label className={lblClass} style={lblStyle}>
+                          서비스 / Service
+                        </label>
+                        <select
+                          value={service}
+                          onChange={(e) => setService(e.target.value)}
+                          style={inputStyle}
+                          className={inputClass}
+                        >
+                          <option value="">선택해 주세요</option>
+                          <option>제사 영구위탁</option>
+                          <option>납골봉안당</option>
+                          <option>사십구재</option>
+                          <option>천도재</option>
+                          <option>사찰 추천 문의</option>
+                          <option>기타 문의</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className={lblClass} style={lblStyle}>
+                          문의 내용 / Message
+                        </label>
+                        <textarea
+                          placeholder="궁금하신 내용을 자유롭게 적어주세요. 비공개로 처리됩니다."
+                          rows={4}
+                          value={message}
+                          onChange={(e) => setMessage(e.target.value)}
+                          style={{ ...inputStyle, resize: "none", minHeight: 90 }}
+                          className={inputClass}
+                        />
+                      </div>
+
+                      <div className="flex flex-col gap-3 mt-2">
+                        <label className="flex gap-3 items-start cursor-pointer">
+                          <input
+                            type="checkbox"
+                            required
+                            checked={privacyAgreed}
+                            onChange={(e) => setPrivacyAgreed(e.target.checked)}
+                            style={{
+                              appearance: "none",
+                              WebkitAppearance: "none",
+                              width: 16,
+                              height: 16,
+                              border: "1px solid var(--gold-500)",
+                              marginTop: 3,
+                              flexShrink: 0,
+                              background: privacyAgreed ? "var(--gold-500)" : "transparent",
+                              position: "relative",
+                              cursor: "pointer",
+                            }}
+                          />
+                          <span style={{ fontSize: 13, color: "var(--ink-soft)", lineHeight: 1.7 }}>
+                            <a
+                              href="/privacy"
+                              target="_blank"
+                              className="underline"
+                              style={{ color: "var(--gold-600)" }}
+                            >
+                              개인정보 처리방침
+                            </a>
+                            을 읽었으며, 상담 외 용도로 사용되지 않음에 동의합니다.{" "}
+                            <em style={{ color: "var(--gold-600)", fontStyle: "normal", fontWeight: 600 }}>
+                              (필수)
+                            </em>
+                          </span>
+                        </label>
+                        <label className="flex gap-3 items-start cursor-pointer">
+                          <input
+                            type="checkbox"
+                            required
+                            checked={sensitiveAgreed}
+                            onChange={(e) => setSensitiveAgreed(e.target.checked)}
+                            style={{
+                              appearance: "none",
+                              WebkitAppearance: "none",
+                              width: 16,
+                              height: 16,
+                              border: "1px solid var(--gold-500)",
+                              marginTop: 3,
+                              flexShrink: 0,
+                              background: sensitiveAgreed ? "var(--gold-500)" : "transparent",
+                              position: "relative",
+                              cursor: "pointer",
+                            }}
+                          />
+                          <span style={{ fontSize: 13, color: "var(--ink-soft)", lineHeight: 1.7 }}>
+                            제사·봉안 등 종교적 신념에 관한 민감정보 처리에 동의합니다.{" "}
+                            <em style={{ color: "var(--gold-600)", fontStyle: "normal", fontWeight: 600 }}>
+                              (필수)
+                            </em>
+                          </span>
+                        </label>
+                      </div>
+
+                      {status === "error" && (
+                        <div
+                          style={{
+                            padding: 16,
+                            background: "#fef2f2",
+                            border: "1px solid #fecaca",
+                            color: "#b91c1c",
+                            fontSize: 14,
+                          }}
+                        >
+                          {errorMsg}
+                        </div>
+                      )}
+
+                      <button
+                        type="submit"
+                        disabled={status === "loading" || !privacyAgreed || !sensitiveAgreed}
+                        className="mt-4 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                        style={{
+                          background: "var(--navy-800)",
+                          color: "var(--gold-400)",
+                          border: "1px solid var(--gold-500)",
+                          padding: 20,
+                          fontWeight: 600,
+                          fontSize: 15,
+                          letterSpacing: "0.14em",
+                        }}
+                      >
+                        {status === "loading" ? "전송 중..." : "상담 신청하기 · SUBMIT"}
+                      </button>
+                    </form>
+                  </>
                 )}
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">서비스 선택</label>
-                <select
-                  value={service}
-                  onChange={(e) => setService(e.target.value)}
-                  className="w-full border border-gray-200 rounded-xl px-5 py-4 text-sm outline-none focus:border-[#2D6A4F] transition-colors text-gray-600"
-                >
-                  <option value="">선택해주세요</option>
-                  <option>제사 영구위탁</option>
-                  <option>납골봉안당</option>
-                  <option>49재</option>
-                  <option>천도재</option>
-                  <option>기타 문의</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">문의 내용</label>
-                <textarea
-                  placeholder="궁금하신 내용을 자유롭게 적어주세요."
-                  rows={5}
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  className="w-full border border-gray-200 rounded-xl px-5 py-4 text-sm outline-none focus:border-[#2D6A4F] transition-colors resize-none"
-                />
-              </div>
-
-              <div className="space-y-3 pt-2">
-                <div className="flex items-start gap-3">
-                  <input
-                    type="checkbox"
-                    id="privacy-agree"
-                    checked={privacyAgreed}
-                    onChange={(e) => setPrivacyAgreed(e.target.checked)}
-                    className="mt-1 w-4 h-4 accent-[#2D6A4F]"
-                    required
-                  />
-                  <label htmlFor="privacy-agree" className="text-sm text-gray-600 leading-relaxed">
-                    <a href="/privacy" target="_blank" className="underline font-medium" style={{ color: "#2D6A4F" }}>
-                      개인정보 처리방침
-                    </a>
-                    을 읽었으며, 상담 목적의 개인정보 수집·이용에 동의합니다. (필수)
-                  </label>
-                </div>
-                <div className="flex items-start gap-3">
-                  <input
-                    type="checkbox"
-                    id="sensitive-agree"
-                    checked={sensitiveAgreed}
-                    onChange={(e) => setSensitiveAgreed(e.target.checked)}
-                    className="mt-1 w-4 h-4 accent-[#2D6A4F]"
-                    required
-                  />
-                  <label htmlFor="sensitive-agree" className="text-sm text-gray-600 leading-relaxed">
-                    제사·봉안 등 종교적 신념에 관한 민감정보 처리에 별도 동의합니다. (필수)
-                  </label>
-                </div>
-              </div>
-
-              {status === "error" && (
-                <div className="p-4 rounded-xl bg-red-50 text-red-600 text-sm">
-                  {errorMsg}
-                </div>
-              )}
-
-              <button
-                type="submit"
-                disabled={status === "loading" || !privacyAgreed || !sensitiveAgreed}
-                className="w-full py-4 rounded-xl text-white font-bold text-lg hover:opacity-90 transition-all disabled:opacity-60"
-                style={{ backgroundColor: "#2D6A4F" }}
-              >
-                {status === "loading" ? "전송 중..." : "상담 신청하기"}
-              </button>
-            </form>
-          )}
-
-          <div className="mt-10 p-6 rounded-2xl text-center" style={{ backgroundColor: "#F5F0E8" }}>
-            <p className="text-sm text-gray-600">전화 상담을 원하시면 아래로 연락주세요.</p>
-            <a
-              href="tel:0000-0000"
-              className="font-serif text-2xl font-bold mt-2 block hover:opacity-80 transition-opacity"
-              style={{ color: "#2D6A4F" }}
-            >
-              0000-0000
-            </a>
-            <p className="text-xs text-gray-400 mt-1">평일 09:00 ~ 18:00</p>
+            </div>
           </div>
-        </div>
+        </section>
       </main>
       <Footer />
     </>

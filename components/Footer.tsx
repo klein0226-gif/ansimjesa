@@ -2,51 +2,150 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: "#2D6A4F" }} className="text-white">
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* 브랜드 */}
+    <footer
+      style={{
+        background: "var(--navy-900)",
+        color: "#B8B09A",
+        borderTop: "1px solid rgba(184,153,104,0.2)",
+        padding: "80px 0 40px",
+      }}
+    >
+      <div className="max-w-[1240px] mx-auto px-6 md:px-10">
+        <div
+          className="grid gap-10 md:gap-14 pb-12 md:pb-14 grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr_1fr]"
+          style={{
+            borderBottom: "1px solid rgba(184,153,104,0.2)",
+          }}
+        >
           <div>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="text-2xl">🪷</span>
-              <span className="font-serif text-xl font-bold">안심제사</span>
+            <div className="flex items-center gap-3.5">
+              <span
+                className="grid place-items-center font-myeongjo font-bold"
+                style={{
+                  width: 38,
+                  height: 38,
+                  border: "1px solid var(--gold-500)",
+                  color: "var(--gold-400)",
+                  fontSize: 17,
+                  letterSpacing: "-0.02em",
+                }}
+                aria-hidden
+              >
+                安
+              </span>
+              <span className="flex flex-col leading-none">
+                <span
+                  className="font-myeongjo font-semibold"
+                  style={{ fontSize: 20, letterSpacing: "0.02em", color: "#F6EED9" }}
+                >
+                  안심제사
+                </span>
+                <span
+                  className="font-latin mt-1.5"
+                  style={{
+                    fontSize: 11,
+                    letterSpacing: "0.32em",
+                    color: "var(--gold-500)",
+                  }}
+                >
+                  ANSIMJESA
+                </span>
+              </span>
             </div>
-            <p className="text-green-200 text-sm leading-relaxed">
-              바쁜 일상 속 제사 걱정,<br />안심제사가 대신 챙겨드립니다.
+            <p
+              className="mt-5"
+              style={{ fontSize: 14, lineHeight: 1.9, color: "#8D8672" }}
+            >
+              바쁜 일상 속 제사 걱정,
+              <br />
+              안심제사가 대신 정성을 다해 챙겨드립니다.
+              <br />
+              전국 계약 사찰 · 영구위탁 · 영구봉안 전문.
             </p>
           </div>
 
-          {/* 서비스 */}
           <div>
-            <h4 className="font-semibold mb-3 text-green-100">서비스</h4>
-            <ul className="space-y-2 text-green-200 text-sm">
-              <li><Link href="/services" className="hover:text-white transition-colors">제사 영구위탁</Link></li>
-              <li><Link href="/services" className="hover:text-white transition-colors">납골봉안당 안내</Link></li>
-              <li><Link href="/services" className="hover:text-white transition-colors">49재</Link></li>
-              <li><Link href="/services" className="hover:text-white transition-colors">천도재</Link></li>
+            <h5
+              className="font-myeongjo mb-6"
+              style={{
+                color: "var(--gold-400)",
+                fontWeight: 500,
+                fontSize: 14,
+                letterSpacing: "0.1em",
+              }}
+            >
+              SERVICES
+            </h5>
+            <ul className="flex flex-col gap-3">
+              <li><Link href="/services" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">제사 영구위탁</Link></li>
+              <li><Link href="/services" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">납골봉안당</Link></li>
+              <li><Link href="/services" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">사십구재</Link></li>
+              <li><Link href="/services" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">천도재</Link></li>
             </ul>
           </div>
 
-          {/* 안내 */}
           <div>
-            <h4 className="font-semibold mb-3 text-green-100">안내</h4>
-            <ul className="space-y-2 text-green-200 text-sm">
-              <li><Link href="/temples" className="hover:text-white transition-colors">사찰 안내</Link></li>
-              <li><Link href="/guide" className="hover:text-white transition-colors">제사 문화 가이드</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">무료 상담 신청</Link></li>
-              <li><Link href="/privacy" className="hover:text-white transition-colors">개인정보 처리방침</Link></li>
-              <li>
-                <a href="tel:0000-0000" className="hover:text-white transition-colors">
-                  전화 상담: 0000-0000
-                </a>
+            <h5
+              className="font-myeongjo mb-6"
+              style={{
+                color: "var(--gold-400)",
+                fontWeight: 500,
+                fontSize: 14,
+                letterSpacing: "0.1em",
+              }}
+            >
+              ABOUT
+            </h5>
+            <ul className="flex flex-col gap-3">
+              <li><Link href="/temples" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">사찰 안내</Link></li>
+              <li><Link href="/guide" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">제사 문화 가이드</Link></li>
+              <li><Link href="/contact" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">무료 상담 신청</Link></li>
+              <li><Link href="/privacy" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">개인정보 처리방침</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h5
+              className="font-myeongjo mb-6"
+              style={{
+                color: "var(--gold-400)",
+                fontWeight: 500,
+                fontSize: 14,
+                letterSpacing: "0.1em",
+              }}
+            >
+              CONTACT
+            </h5>
+            <ul className="flex flex-col gap-3">
+              <li
+                className="font-myeongjo"
+                style={{ color: "var(--gold-400)", fontSize: 18 }}
+              >
+                상담 준비 중
               </li>
+              <li className="text-[14px]">평일 09:00 – 19:00</li>
+              <li className="text-[14px]">토요일 10:00 – 15:00</li>
+              <li className="text-[14px]">상담 전액 무료</li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-green-700 mt-10 pt-6 text-center text-green-300 text-xs">
-          © 2026 안심제사. All rights reserved. | ansimjesa.co.kr |{" "}
-          <Link href="/privacy" className="hover:text-white transition-colors underline">개인정보 처리방침</Link>
+        <div
+          className="flex flex-col sm:flex-row justify-between items-center gap-3 pt-8"
+          style={{ fontSize: 12, color: "#7A7360", letterSpacing: "0.04em" }}
+        >
+          <div>
+            © 2026 ANSIMJESA · ansimjesa.co.kr · All rights reserved ·{" "}
+            <Link href="/privacy" className="underline hover:text-[color:var(--gold-400)]">
+              개인정보 처리방침
+            </Link>
+          </div>
+          <div
+            className="font-latin"
+            style={{ color: "var(--gold-500)", letterSpacing: "0.2em" }}
+          >
+            KO · EN · 中文
+          </div>
         </div>
       </div>
     </footer>
