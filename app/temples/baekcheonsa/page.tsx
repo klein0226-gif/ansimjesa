@@ -34,8 +34,8 @@ export default function BaekcheonsaPage() {
               <div>
                 <p className="text-sm font-medium tracking-widest mb-2" style={{ color: "#2D6A4F" }}>ABOUT</p>
                 <h2 className="font-serif text-3xl font-bold mb-4">사찰 소개</h2>
-                <p className="text-gray-600 leading-relaxed mb-4">김해 시내에서 가까운 아담하고 정갈한 사찰입니다. 바쁜 일상 속에서도 부담 없이 방문할 수 있으며, 경내가 잘 가꿔져 조용히 산책하기에도 좋습니다.</p>
-                <p className="text-gray-600 leading-relaxed">정암 스님이 지역 주민들과 소통하며 정성스럽게 제사를 모시고 계십니다. 어린이 불교 교육과 봉사 활동에도 앞장서는 따뜻한 사찰입니다.</p>
+                <p className="text-gray-600 leading-relaxed mb-4">사천 와룡산 자락에 자리한 천년 고찰입니다. 오랜 역사와 깊은 전통이 살아있어 영구 봉안을 맡기기에 가장 신뢰할 수 있는 사찰입니다.</p>
+                <p className="text-gray-600 leading-relaxed">정암 스님이 천년의 전통을 이어가며 정성스럽게 제사를 모시고 계십니다. 남해 바다가 가까워 참배 후 힐링 여행도 함께 할 수 있습니다.</p>
               </div>
               <div className="rounded-2xl overflow-hidden shadow-lg">
                 <img src="/temples/baekcheonsa_sub.jpg" alt="baekcheonsa 경내" className="w-full h-[300px] object-cover" />
@@ -45,13 +45,13 @@ export default function BaekcheonsaPage() {
 
           {/* 장점 */}
           <section className="mb-16">
-            <p className="text-sm font-medium tracking-widest mb-2" style={{ color: "#2D6A4F" }}>WHY DEOKUNSA</p>
-            <h2 className="font-serif text-3xl font-bold mb-8">덕운사를 선택하는 이유</h2>
+            <p className="text-sm font-medium tracking-widest mb-2" style={{ color: "#2D6A4F" }}>WHY BAEKCHEONSA</p>
+            <h2 className="font-serif text-3xl font-bold mb-8">백천사를 선택하는 이유</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { icon: "🚗", title: "접근성 최고", desc: "김해 시내 근교, 주차 편리" },
-                { icon: "🌿", title: "정갈한 분위기", desc: "아담하고 잘 가꿔진 경내" },
-                { icon: "🙏", title: "정암 스님 상주", desc: "지역 포교·봉사 활동 활발" },
+                { icon: "🏯", title: "천년 고찰", desc: "오랜 역사와 깊은 전통의 신뢰" },
+                { icon: "🌅", title: "남해 인접", desc: "바다가 가까워 힐링 여행 겸비" },
+                { icon: "🙏", title: "정암 스님 상주", desc: "천년 전통을 이어가는 수행자" },
               ].map((item) => (
                 <div key={item.title} className="text-center p-6 rounded-2xl bg-gray-50">
                   <p className="text-4xl mb-3">{item.icon}</p>
@@ -106,9 +106,9 @@ export default function BaekcheonsaPage() {
             <h2 className="font-serif text-3xl font-bold mb-8">추천 여행 코스</h2>
             <div className="space-y-4">
               {[
-                { name: "가야 역사 탐방", route: "덕운사 참배 → 국립김해박물관 → 수로왕릉 → 분성산 산책 → 김해 뒷고기 맛집" },
-                { name: "가족 나들이", route: "덕운사 참배 → 김해천문대 (별자리 관측) → 봉하마을 → 장유 카페거리" },
-                { name: "부산 연계", route: "덕운사 참배 → 김해공항 근처 맛집 → 부산 해운대 or 광안리 → 저녁 해산물" },
+                { name: "남해 바다 힐링", route: "백천사 참배 → 사천 실안해안도로 드라이브 → 삼천포대교 공원 → 해물탕 맛집" },
+                { name: "항공 우주 탐방", route: "백천사 참배 → 사천 항공우주박물관 → 진주 촉석루 → 진주 비빔밥 맛집" },
+                { name: "가족 나들이", route: "백천사 참배 → 와룡산 등산 → 사천 바다케이블카 → 노을 감상" },
               ].map((c) => (
                 <div key={c.name} className="bg-gray-50 rounded-xl p-5">
                   <p className="font-bold mb-1">{c.name}</p>
@@ -130,7 +130,7 @@ export default function BaekcheonsaPage() {
 
           {/* CTA */}
           <div className="text-center py-8">
-            <h2 className="font-serif text-2xl font-bold mb-4">정성스러운 제사, 덕운사에서 시작하세요</h2>
+            <h2 className="font-serif text-2xl font-bold mb-4">정성스러운 제사, 백천사에서 시작하세요</h2>
             <Link href="/contact" className="inline-block px-10 py-4 rounded-full text-white font-bold shadow-lg hover:opacity-90 transition-all text-lg" style={{ backgroundColor: "#2D6A4F" }}>
               무료 상담 신청하기
             </Link>

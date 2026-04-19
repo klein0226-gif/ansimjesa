@@ -34,8 +34,8 @@ export default function SuamsaPage() {
               <div>
                 <p className="text-sm font-medium tracking-widest mb-2" style={{ color: "#2D6A4F" }}>ABOUT</p>
                 <h2 className="font-serif text-3xl font-bold mb-4">사찰 소개</h2>
-                <p className="text-gray-600 leading-relaxed mb-4">김해 시내에서 가까운 아담하고 정갈한 사찰입니다. 바쁜 일상 속에서도 부담 없이 방문할 수 있으며, 경내가 잘 가꿔져 조용히 산책하기에도 좋습니다.</p>
-                <p className="text-gray-600 leading-relaxed">법웅 스님이 지역 주민들과 소통하며 정성스럽게 제사를 모시고 계십니다. 어린이 불교 교육과 봉사 활동에도 앞장서는 따뜻한 사찰입니다.</p>
+                <p className="text-gray-600 leading-relaxed mb-4">합천호가 내려다보이는 평화로운 사찰입니다. 호수의 잔잔한 풍경과 함께 고인을 추모할 수 있어 마음의 안정을 찾기에 좋습니다.</p>
+                <p className="text-gray-600 leading-relaxed">법웅 스님이 자연과 함께하는 수행을 강조하며 정성스럽게 제사를 모시고 계십니다. 사계절 아름다운 경관 속에서 편안한 추모의 시간을 보내실 수 있습니다.</p>
               </div>
               <div className="rounded-2xl overflow-hidden shadow-lg">
                 <img src="/temples/suamsa_sub.jpg" alt="suamsa 경내" className="w-full h-[300px] object-cover" />
@@ -45,13 +45,13 @@ export default function SuamsaPage() {
 
           {/* 장점 */}
           <section className="mb-16">
-            <p className="text-sm font-medium tracking-widest mb-2" style={{ color: "#2D6A4F" }}>WHY DEOKUNSA</p>
-            <h2 className="font-serif text-3xl font-bold mb-8">덕운사를 선택하는 이유</h2>
+            <p className="text-sm font-medium tracking-widest mb-2" style={{ color: "#2D6A4F" }}>WHY SUAMSA</p>
+            <h2 className="font-serif text-3xl font-bold mb-8">수암사를 선택하는 이유</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { icon: "🚗", title: "접근성 최고", desc: "김해 시내 근교, 주차 편리" },
-                { icon: "🌿", title: "정갈한 분위기", desc: "아담하고 잘 가꿔진 경내" },
-                { icon: "🙏", title: "법웅 스님 상주", desc: "지역 포교·봉사 활동 활발" },
+                { icon: "🌊", title: "합천호 전망", desc: "호수가 내려다보이는 평화로운 입지" },
+                { icon: "🍃", title: "사계절 경관", desc: "봄 벚꽃, 가을 단풍의 아름다운 자연" },
+                { icon: "🙏", title: "법웅 스님 상주", desc: "자연과 함께하는 수행 중심 사찰" },
               ].map((item) => (
                 <div key={item.title} className="text-center p-6 rounded-2xl bg-gray-50">
                   <p className="text-4xl mb-3">{item.icon}</p>
@@ -106,9 +106,9 @@ export default function SuamsaPage() {
             <h2 className="font-serif text-3xl font-bold mb-8">추천 여행 코스</h2>
             <div className="space-y-4">
               {[
-                { name: "가야 역사 탐방", route: "덕운사 참배 → 국립김해박물관 → 수로왕릉 → 분성산 산책 → 김해 뒷고기 맛집" },
-                { name: "가족 나들이", route: "덕운사 참배 → 김해천문대 (별자리 관측) → 봉하마을 → 장유 카페거리" },
-                { name: "부산 연계", route: "덕운사 참배 → 김해공항 근처 맛집 → 부산 해운대 or 광안리 → 저녁 해산물" },
+                { name: "합천호 힐링", route: "수암사 참배 → 합천호 둘레길 산책 → 합천 영상테마파크 → 합천 한우 맛집" },
+                { name: "해인사 연계", route: "수암사 참배 → 해인사 팔만대장경 관람 → 가야산 자연휴양림 → 홍류동 계곡" },
+                { name: "가족 나들이", route: "수암사 참배 → 합천 정양늪 생태공원 → 옥전고분군 → 초계 장터 맛집" },
               ].map((c) => (
                 <div key={c.name} className="bg-gray-50 rounded-xl p-5">
                   <p className="font-bold mb-1">{c.name}</p>
@@ -130,7 +130,7 @@ export default function SuamsaPage() {
 
           {/* CTA */}
           <div className="text-center py-8">
-            <h2 className="font-serif text-2xl font-bold mb-4">정성스러운 제사, 덕운사에서 시작하세요</h2>
+            <h2 className="font-serif text-2xl font-bold mb-4">정성스러운 제사, 수암사에서 시작하세요</h2>
             <Link href="/contact" className="inline-block px-10 py-4 rounded-full text-white font-bold shadow-lg hover:opacity-90 transition-all text-lg" style={{ backgroundColor: "#2D6A4F" }}>
               무료 상담 신청하기
             </Link>

@@ -34,8 +34,8 @@ export default function MaesaPage() {
               <div>
                 <p className="text-sm font-medium tracking-widest mb-2" style={{ color: "#2D6A4F" }}>ABOUT</p>
                 <h2 className="font-serif text-3xl font-bold mb-4">사찰 소개</h2>
-                <p className="text-gray-600 leading-relaxed mb-4">김해 시내에서 가까운 아담하고 정갈한 사찰입니다. 바쁜 일상 속에서도 부담 없이 방문할 수 있으며, 경내가 잘 가꿔져 조용히 산책하기에도 좋습니다.</p>
-                <p className="text-gray-600 leading-relaxed">정묵 스님이 지역 주민들과 소통하며 정성스럽게 제사를 모시고 계십니다. 어린이 불교 교육과 봉사 활동에도 앞장서는 따뜻한 사찰입니다.</p>
+                <p className="text-gray-600 leading-relaxed mb-4">거창 가야산 국립공원 인근에 자리한 유서 깊은 사찰입니다. 마애불 문화재가 있어 격식 있는 분위기 속에서 제사를 모실 수 있습니다.</p>
+                <p className="text-gray-600 leading-relaxed">정묵 스님이 문화재를 지키며 정성스럽게 제사를 모시고 계십니다. 역사와 전통이 살아있는 사찰에서 고인을 추모할 수 있습니다.</p>
               </div>
               <div className="rounded-2xl overflow-hidden shadow-lg">
                 <img src="/temples/maesa_sub.jpg" alt="maesa 경내" className="w-full h-[300px] object-cover" />
@@ -45,13 +45,13 @@ export default function MaesaPage() {
 
           {/* 장점 */}
           <section className="mb-16">
-            <p className="text-sm font-medium tracking-widest mb-2" style={{ color: "#2D6A4F" }}>WHY DEOKUNSA</p>
-            <h2 className="font-serif text-3xl font-bold mb-8">덕운사를 선택하는 이유</h2>
+            <p className="text-sm font-medium tracking-widest mb-2" style={{ color: "#2D6A4F" }}>WHY MAESA</p>
+            <h2 className="font-serif text-3xl font-bold mb-8">마애사를 선택하는 이유</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { icon: "🚗", title: "접근성 최고", desc: "김해 시내 근교, 주차 편리" },
-                { icon: "🌿", title: "정갈한 분위기", desc: "아담하고 잘 가꿔진 경내" },
-                { icon: "🙏", title: "정묵 스님 상주", desc: "지역 포교·봉사 활동 활발" },
+                { icon: "🏛️", title: "문화재 사찰", desc: "마애불 앞에서 드리는 격식 있는 제사" },
+                { icon: "🏔️", title: "가야산 자연", desc: "국립공원 인근의 수려한 경관" },
+                { icon: "🙏", title: "정묵 스님 상주", desc: "문화재 보존과 제사를 함께" },
               ].map((item) => (
                 <div key={item.title} className="text-center p-6 rounded-2xl bg-gray-50">
                   <p className="text-4xl mb-3">{item.icon}</p>
@@ -106,9 +106,9 @@ export default function MaesaPage() {
             <h2 className="font-serif text-3xl font-bold mb-8">추천 여행 코스</h2>
             <div className="space-y-4">
               {[
-                { name: "가야 역사 탐방", route: "덕운사 참배 → 국립김해박물관 → 수로왕릉 → 분성산 산책 → 김해 뒷고기 맛집" },
-                { name: "가족 나들이", route: "덕운사 참배 → 김해천문대 (별자리 관측) → 봉하마을 → 장유 카페거리" },
-                { name: "부산 연계", route: "덕운사 참배 → 김해공항 근처 맛집 → 부산 해운대 or 광안리 → 저녁 해산물" },
+                { name: "가야산 역사 탐방", route: "마애사 참배 → 가야산 국립공원 산책 → 해인사 방문 → 거창 한우 맛집" },
+                { name: "가족 나들이", route: "마애사 참배 → 거창 수승대 → 거창 사과 따기 체험 → 월성우주창의과학관" },
+                { name: "자연 힐링", route: "마애사 참배 → 가조온천 → 거창 둘레길 산책 → 지역 특산물 장터" },
               ].map((c) => (
                 <div key={c.name} className="bg-gray-50 rounded-xl p-5">
                   <p className="font-bold mb-1">{c.name}</p>
@@ -130,7 +130,7 @@ export default function MaesaPage() {
 
           {/* CTA */}
           <div className="text-center py-8">
-            <h2 className="font-serif text-2xl font-bold mb-4">정성스러운 제사, 덕운사에서 시작하세요</h2>
+            <h2 className="font-serif text-2xl font-bold mb-4">정성스러운 제사, 마애사에서 시작하세요</h2>
             <Link href="/contact" className="inline-block px-10 py-4 rounded-full text-white font-bold shadow-lg hover:opacity-90 transition-all text-lg" style={{ backgroundColor: "#2D6A4F" }}>
               무료 상담 신청하기
             </Link>
