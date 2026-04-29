@@ -60,7 +60,7 @@ export default function Footer() {
               <br />
               안심제사가 대신 정성을 다해 챙겨드립니다.
               <br />
-              전국 계약 사찰 · 영구위탁 · 영구봉안 전문.
+              경남 4개 사찰 · 영구위탁 · 영구봉안 안내.
             </p>
           </div>
 
@@ -119,13 +119,30 @@ export default function Footer() {
             <ul className="flex flex-col gap-3">
               <li
                 className="font-myeongjo"
-                style={{ color: "var(--gold-400)", fontSize: 18 }}
+                style={{
+                  color: "var(--gold-500)",
+                  fontSize: 22,
+                  letterSpacing: "0.12em",
+                  opacity: 0.75,
+                }}
               >
-                상담 준비 중
+                開設備中
               </li>
-              <li className="text-[14px]">평일 09:00 – 19:00</li>
-              <li className="text-[14px]">토요일 10:00 – 15:00</li>
-              <li className="text-[14px]">상담 전액 무료</li>
+              <li
+                className="font-latin"
+                style={{
+                  fontSize: 11,
+                  color: "var(--gold-500)",
+                  letterSpacing: "0.32em",
+                }}
+              >
+                OPENING SOON
+              </li>
+              <li className="text-[13px]" style={{ color: "#8D8672", lineHeight: 1.7 }}>
+                정식 오픈 시 번호와<br />
+                채널을 안내드립니다.
+              </li>
+              <li className="text-[13px]" style={{ color: "#8D8672" }}>상담 전액 무료</li>
             </ul>
           </div>
         </div>

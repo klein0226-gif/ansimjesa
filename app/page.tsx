@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { KAKAO_CHANNEL_URL } from "@/lib/constants";
 
 const temples = [
   {
@@ -176,7 +175,7 @@ export default function Home() {
                   >
                     일 년에 단 하루, 기다리고 계신 분을 위해.
                     <br />
-                    전국의 엄선된 사찰과 1:1로 연결해
+                    경남 4개 사찰과 1:1로 연결해
                     <br />
                     제사·49재·천도재·납골봉안을 정성껏 모십니다.
                   </p>
@@ -427,7 +426,7 @@ export default function Home() {
                   </p>
                   <p style={{ fontSize: 15, color: "var(--ink-soft)", lineHeight: 1.9, marginBottom: 20 }}>
                     바쁜 일상, 해외 거주, 연세 드신 부모님을 모시는 상황 — 직접 제를 모시기 어려운 분들 곁에
-                    안심제사가 섭니다. 전국의 계약 사찰에서 스님이 직접 집전하고, 진행 전 과정은 사진과 영상으로
+                    안심제사가 함께합니다. 경남 4개 사찰에서 스님이 직접 집전하고, 진행 전 과정은 사진과 영상으로
                     보고드립니다.
                   </p>
                   <p style={{ fontSize: 15, color: "var(--ink-soft)", lineHeight: 1.9 }}>
@@ -816,7 +815,7 @@ export default function Home() {
                     마음만 담아 주세요.
                   </h3>
                   <p style={{ color: "#C9C2AE", fontSize: 15, lineHeight: 1.9, maxWidth: 420 }}>
-                    24시간 이내 전문 상담원이 연락드립니다. 상담은 전액 무료이며, 문의 내용은 엄격히 비공개로
+                    정식 오픈 후 안내드립니다. 상담은 전액 무료이며, 문의 내용은 엄격히 비공개로
                     관리됩니다.
                   </p>
                   <div
@@ -830,12 +829,30 @@ export default function Home() {
                     </div>
                     <div
                       className="font-myeongjo"
-                      style={{ fontSize: 28, color: "var(--gold-400)", letterSpacing: "0.02em" }}
+                      style={{
+                        fontSize: 32,
+                        color: "var(--gold-500)",
+                        letterSpacing: "0.12em",
+                        opacity: 0.75,
+                      }}
                     >
-                      상담 채널 준비 중
+                      開設備中
                     </div>
-                    <p style={{ color: "#B8B09A", fontSize: 13, marginTop: 8 }}>
-                      카카오톡 · 상담 폼으로 먼저 문의 주세요.
+                    <div
+                      className="font-latin"
+                      style={{
+                        fontSize: 11,
+                        color: "var(--gold-500)",
+                        letterSpacing: "0.32em",
+                        marginTop: 6,
+                      }}
+                    >
+                      OPENING SOON
+                    </div>
+                    <p style={{ color: "#B8B09A", fontSize: 13, marginTop: 12, lineHeight: 1.8 }}>
+                      개설 대비 중입니다. 정식 오픈 시
+                      <br />
+                      번호와 채널을 안내드립니다.
                     </p>
                   </div>
                 </div>
@@ -853,24 +870,25 @@ export default function Home() {
                       border: "1px solid var(--gold-500)",
                     }}
                   >
-                    상담 신청하기 · SUBMIT
+                    안내 페이지 보기 ·→
                   </Link>
-                  <a
-                    href={KAKAO_CHANNEL_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-3 transition-all"
+                  <span
+                    aria-disabled="true"
+                    aria-label="카카오 채널 개설 예정"
+                    className="inline-flex items-center justify-center gap-3"
                     style={{
                       padding: "20px 32px",
-                      background: "#FEE500",
-                      color: "#3C1E1E",
-                      fontWeight: 700,
+                      background: "rgba(107, 112, 133, 0.12)",
+                      color: "var(--ink-mute, #6B7085)",
+                      border: "1px dashed rgba(107,112,133,0.45)",
+                      fontWeight: 500,
                       fontSize: 15,
                       letterSpacing: "0.04em",
+                      cursor: "not-allowed",
                     }}
                   >
-                    카카오톡으로 빠른 상담
-                  </a>
+                    카카오 채널 개설 예정
+                  </span>
                 </div>
               </div>
             </div>

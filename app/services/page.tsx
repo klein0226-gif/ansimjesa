@@ -104,8 +104,8 @@ export default function ServicesPage() {
               </span>
             </h1>
             <p style={{ color: "#C9C2AE", fontSize: 17, lineHeight: 1.9, maxWidth: 640 }}>
-              제사 영구위탁부터 납골봉안, 49재, 천도재까지 — 안심제사의 모든 서비스는 전국의 엄선된 계약 사찰에서
-              스님이 직접 집전하며, 전 과정이 서면으로 약정됩니다.
+              제사 영구위탁부터 납골봉안, 49재, 천도재까지 — 안심제사의 모든 서비스는 경남 4개 사찰에서
+              스님이 직접 집전하며, 정식 오픈 후 서면 약정 예정입니다.
             </p>
           </div>
         </section>
