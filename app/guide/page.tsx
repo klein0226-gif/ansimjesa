@@ -252,7 +252,7 @@ export default function GuidePage() {
                   marginBottom: 28,
                 }}
               >
-                폼 한 장이 가장 빠른 길입니다. 24시간 내 회신드립니다.
+                폼 한 장이 가장 빠른 길입니다. 보통 24시간 안에 회신드립니다.
               </p>
               <Link
                 href="/contact"
