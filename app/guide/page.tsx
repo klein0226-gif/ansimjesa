@@ -10,14 +10,14 @@ const articles = [
     slug: "jesa-wital",
     category: "제사 위탁",
     title: "절에 맡기면 진짜 어떻게 되나요?",
-    desc: "계약부터 매년 기일까지, 전 과정 쌩으로 공개합니다.",
+    desc: "계약부터 매년 기일까지, 전 과정을 투명하게 공개합니다.",
     readTime: "3분",
   },
   {
     slug: "49jae-biyong",
     category: "49재",
     title: "49재, 얼마 나와요?",
-    desc: "바가지 없는 가격 총정리. 절충형까지 다 안내.",
+    desc: "규모별·사찰별 49재 비용을 투명하게. 절충형까지 한눈에 정리.",
     readTime: "4분",
   },
   {
@@ -38,7 +38,7 @@ const articles = [
     slug: "bonandang",
     category: "납골봉안당",
     title: "일반 납골당 vs 사찰 봉안당",
-    desc: "뭐가 다른지, 왜 절이 나은지. 한 방에 정리.",
+    desc: "무엇이 다른지, 어떤 분께 맞는지. 차이를 한눈에 정리.",
     readTime: "3분",
   },
   {
