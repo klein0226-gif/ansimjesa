@@ -909,7 +909,7 @@ export default function Home() {
                   letterSpacing: "-0.02em",
                 }}
               >
-                제사 문화, 바르게 알려 드립니다.
+                제사 문화, 차분히 알려 드립니다.
               </h2>
               <p className="mt-5" style={{ fontSize: 16, color: "var(--ink-soft)", lineHeight: 1.8 }}>
                 정확한 정보만으로도 많은 걱정이 사라집니다. 현대 한국 가정에 맞는 제사·49재·천도재 안내를 읽어

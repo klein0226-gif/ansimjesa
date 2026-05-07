@@ -304,9 +304,9 @@ const articles: Record<string, {
         <h2 className={h2Class} style={h2Style}>이런 상황이라면 천도재를 고려하세요</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {[
-            { icon: "😔", title: "고인이 꿈에 자주 나타날 때", desc: "돌아가신 분이 반복적으로 꿈에 나타난다면 이승에 미련이 남아있다는 신호일 수 있습니다." },
+            { icon: "😔", title: "고인이 꿈에 자주 나타날 때", desc: "돌아가신 분이 반복적으로 꿈에 나타날 때, 가족이 고인을 다시 떠올리게 되는 계기로 받아들이는 분들이 있습니다." },
             { icon: "⚡", title: "갑작스러운 사고사인 경우", desc: "준비 없이 갑작스럽게 돌아가신 경우 한(恨)이 남아 있을 수 있어 천도재로 편히 보내드립니다." },
-            { icon: "🏚️", title: "집안에 불운이 반복될 때", desc: "사업 부진, 가족 분란, 원인 모를 소송 등 불운이 계속된다면 천도재로 집안의 기운을 바로잡습니다." },
+            { icon: "🏚️", title: "삶의 어려움이 거듭될 때", desc: "사업 부진, 가족 간 갈등, 거듭되는 어려움이 이어질 때 — 마음을 정돈하기 위해 천도재를 청하시는 분들이 있습니다." },
             { icon: "📅", title: "기일을 오래 챙기지 못한 경우", desc: "여러 해 동안 제사를 못 챙겼다면 천도재로 한꺼번에 정성을 올릴 수 있습니다." },
           ].map((item) => (
             <div
@@ -605,7 +605,8 @@ const articles: Record<string, {
           있도록 도움이 된다는 것입니다.
         </p>
         <p style={bodyStyle}>
-          이것이 바로 49재를 지내는 가장 본질적인 이유입니다. 마지막으로 해드릴 수 있는 효도인 셈입니다.
+          이것이 49재를 지내는 핵심적인 의미입니다. 가족이 고인을 위해 마음을 모으는 마지막 49일 — 그 시간을
+          정성껏 지나는 일이라 전해집니다.
         </p>
 
         <h2 className={h2Class} style={h2Style}>49재 절차</h2>
@@ -616,7 +617,7 @@ const articles: Record<string, {
             { title: "관욕(灌浴)", desc: "영가의 업장을 씻겨드립니다. 가장 먼저, 가장 중요한 의식입니다." },
             { title: "헌공(獻供)", desc: "영가와 불보살에게 공양을 올립니다." },
             { title: "신중헌공(神衆獻供)", desc: "천지신명에게 선처를 기원합니다." },
-            { title: "봉송(奉送)", desc: "영가를 극락으로 환송합니다." },
+            { title: "봉송(奉送)", desc: "극락왕생을 발원하며 영가를 환송하는 의식입니다." },
           ].map((item, i) => (
             <li key={item.title} className="flex gap-3">
               <span style={{ ...stepBadgeStyle, width: 28, height: 28, fontSize: 12 }}>{i + 1}</span>

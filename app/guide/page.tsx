@@ -45,7 +45,7 @@ const articles = [
     slug: "49jae-meaning",
     category: "49재",
     title: "왜 하필 49일일까",
-    desc: "7번의 심판, 중유의 개념. 철학 빠르게 훑기.",
+    desc: "7번의 심판과 중유 — 49재에 담긴 불교적 시간관을 정리합니다.",
     readTime: "5분",
   },
   {
@@ -111,12 +111,12 @@ export default function GuidePage() {
               제사 문화,
               <br />
               <span className="font-latin" style={{ color: "var(--gold-400)", fontStyle: "italic" }}>
-                바르게 알려 드립니다.
+                차분히 알려 드립니다.
               </span>
             </h1>
             <p style={{ color: "#C9C2AE", fontSize: 17, lineHeight: 1.9, maxWidth: 640 }}>
-              제사가 처음이어도 상관없습니다. 궁금한 거 여기 다 있어요. 제사·49재·천도재·납골봉안까지
-              쉽고 투명하게 정리해 드립니다.
+              제사가 처음이어도 괜찮습니다. 제사·49재·천도재·납골봉안에 관해 자주 받는 질문을 한곳에 모아,
+              차분히 안내드립니다.
             </p>
           </div>
         </section>
