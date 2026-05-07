@@ -6,10 +6,10 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "사찰 안내 — 경남 네 곳의 계약 사찰",
   description:
-    "김해 덕운사, 의령 수암사, 함안 마애사, 사천 백천사 — 각기 다른 격과 분위기를 갖춘 네 사찰을 비교해 내게 맞는 도량을 찾으세요.",
+    "현재 경남의 계약 사찰 4곳(덕운사·수암사·마애사·백천사). 전국 어디서든 상담 가능, 계약 사찰은 추후 점점 확대 예정. 각 사찰의 연혁·전각·봉안 시설을 한눈에 비교하세요.",
   openGraph: {
     title: "사찰 안내 — 안심제사",
-    description: "경남 네 곳의 계약 사찰, 각 사찰의 연혁·전각·봉안 시설을 한눈에.",
+    description: "현재 경남의 계약 사찰 4곳. 전국 상담 가능, 계약 사찰은 추후 점점 확대 예정.",
     url: "https://ansimjesa.co.kr/temples",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
@@ -121,7 +121,7 @@ export default function TemplesPage() {
                 fontSize: "clamp(40px, 4.8vw, 68px)",
                 color: "#F6EED9",
                 lineHeight: 1.15,
-                margin: "24px 0 24px",
+                margin: "24px 0 18px",
                 maxWidth: 900,
               }}
             >
@@ -131,6 +131,21 @@ export default function TemplesPage() {
                 정중하게 연결해 드립니다.
               </span>
             </h1>
+            <div
+              className="font-myeongjo inline-block"
+              style={{
+                padding: "8px 16px",
+                fontSize: 13,
+                fontWeight: 500,
+                background: "rgba(184,153,104,0.1)",
+                color: "var(--gold-400)",
+                border: "1px solid rgba(184,153,104,0.45)",
+                letterSpacing: "0.02em",
+                marginBottom: 22,
+              }}
+            >
+              전국 어디서든 상담 가능 · 계약 사찰은 추후 점점 확대 예정
+            </div>
             <p style={{ color: "#C9C2AE", fontSize: 17, lineHeight: 1.9, maxWidth: 640 }}>
               각 사찰마다 특별한 장점이 있습니다. 접근성, 분위기, 시설, 비용을 한눈에 비교하고 상황에 가장 잘 맞는
               사찰을 찾아보세요. 결정이 어려우시면 무료 상담으로 추천받으실 수 있습니다.

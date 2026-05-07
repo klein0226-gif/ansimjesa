@@ -48,9 +48,30 @@ const articles = [
     desc: "7번의 심판, 중유의 개념. 철학 빠르게 훑기.",
     readTime: "5분",
   },
+  {
+    slug: "mixed-religion",
+    category: "가족 의사결정",
+    title: "기독교 집안인데 일부만 제사를 원해요",
+    desc: "종교가 다른 가족 사이에서 제사를 어떻게 풀어야 할지 — 흔한 케이스와 선택지를 정리합니다.",
+    readTime: "4분",
+  },
+  {
+    slug: "overseas-family",
+    category: "가족 의사결정",
+    title: "해외 거주 중인데, 부모님 기일은 어떡하죠?",
+    desc: "직접 참석이 어려운 자녀가 제사를 챙기는 방법 — 위탁·원격 참배·절충안을 안내합니다.",
+    readTime: "4분",
+  },
+  {
+    slug: "sibling-conflict",
+    category: "가족 의사결정",
+    title: "형제 간 의견이 갈릴 때, 어떻게 정리하나요?",
+    desc: "장남이 모든 부담을 지던 시대는 지났습니다. 흔한 갈등 유형과 합의 방법을 차분히 정리합니다.",
+    readTime: "5분",
+  },
 ];
 
-const categories = ["전체", "제사 문화", "제사 위탁", "49재", "천도재", "납골봉안당"];
+const categories = ["전체", "제사 문화", "제사 위탁", "49재", "천도재", "납골봉안당", "가족 의사결정"];
 
 export default function GuidePage() {
   const [selectedCategory, setSelectedCategory] = useState("전체");
@@ -231,7 +252,7 @@ export default function GuidePage() {
                   marginBottom: 28,
                 }}
               >
-                전화 한 통이 제일 빠릅니다.
+                폼 한 장이 가장 빠른 길입니다. 24시간 내 회신드립니다.
               </p>
               <Link
                 href="/contact"
