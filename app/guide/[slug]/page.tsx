@@ -305,9 +305,9 @@ const articles: Record<string, {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {[
             { icon: "😔", title: "고인이 꿈에 자주 나타날 때", desc: "돌아가신 분이 반복적으로 꿈에 나타날 때, 가족이 고인을 다시 떠올리게 되는 계기로 받아들이는 분들이 있습니다." },
-            { icon: "⚡", title: "갑작스러운 사고사인 경우", desc: "준비 없이 갑작스럽게 돌아가신 경우 한(恨)이 남아 있을 수 있어 천도재로 편히 보내드립니다." },
+            { icon: "⚡", title: "갑작스러운 이별을 겪었을 때", desc: "준비 없이 갑작스럽게 돌아가신 경우, 가족이 마음을 정리하기 위해 천도재를 청하시는 경우가 있습니다." },
             { icon: "🏚️", title: "삶의 어려움이 거듭될 때", desc: "사업 부진, 가족 간 갈등, 거듭되는 어려움이 이어질 때 — 마음을 정돈하기 위해 천도재를 청하시는 분들이 있습니다." },
-            { icon: "📅", title: "기일을 오래 챙기지 못한 경우", desc: "여러 해 동안 제사를 못 챙겼다면 천도재로 한꺼번에 정성을 올릴 수 있습니다." },
+            { icon: "📅", title: "기일을 오래 챙기지 못한 경우", desc: "여러 해 동안 제사를 챙기지 못한 가족이, 합동 천도재로 한 번에 정성을 모으시는 경우가 있습니다." },
           ].map((item) => (
             <div
               key={item.title}
@@ -341,7 +341,7 @@ const articles: Record<string, {
                 { label: "시기", jae: "사망 직후 49일 이내", chundo: "언제든 가능" },
                 { label: "횟수", jae: "한 번 (사망 시 1회)", chundo: "여러 번 가능" },
                 { label: "기간", jae: "49일", chundo: "하루" },
-                { label: "목적", jae: "사후 심판 보조", chundo: "이승에 남은 영혼 천도" },
+                { label: "목적", jae: "불교 전통상 49일 중유 기간을 위한 의례", chundo: "전통상 영가의 천도를 발원하는 의례" },
               ].map((row) => (
                 <tr key={row.label}>
                   <td className="px-4 py-3 font-myeongjo" style={{ border: "1px solid var(--line)", fontSize: 14, color: "var(--ink)", fontWeight: 500 }}>
@@ -614,7 +614,7 @@ const articles: Record<string, {
           {[
             { title: "시련(侍輦)", desc: "영가(영혼)를 영단에 초청합니다." },
             { title: "대령(對靈)", desc: "의식 진행 내용을 영가에게 고합니다." },
-            { title: "관욕(灌浴)", desc: "영가의 업장을 씻겨드립니다. 가장 먼저, 가장 중요한 의식입니다." },
+            { title: "관욕(灌浴)", desc: "영가의 업장을 씻기 위한 의식입니다. 가장 먼저 진행되는 핵심 단계입니다." },
             { title: "헌공(獻供)", desc: "영가와 불보살에게 공양을 올립니다." },
             { title: "신중헌공(神衆獻供)", desc: "천지신명에게 선처를 기원합니다." },
             { title: "봉송(奉送)", desc: "극락왕생을 발원하며 영가를 환송하는 의식입니다." },

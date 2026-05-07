@@ -10,7 +10,7 @@ const articles = [
     slug: "jesa-wital",
     category: "제사 위탁",
     title: "절에 맡기면 진짜 어떻게 되나요?",
-    desc: "계약부터 매년 기일까지, 전 과정을 투명하게 공개합니다.",
+    desc: "계약부터 매년 기일까지의 흐름을 정리합니다.",
     readTime: "3분",
   },
   {
