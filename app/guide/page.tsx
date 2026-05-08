@@ -10,14 +10,14 @@ const articles = [
     slug: "jesa-wital",
     category: "제사 위탁",
     title: "절에 맡기면 진짜 어떻게 되나요?",
-    desc: "계약부터 매년 기일까지, 전 과정 쌩으로 공개합니다.",
+    desc: "계약부터 매년 기일까지의 흐름을 정리합니다.",
     readTime: "3분",
   },
   {
     slug: "49jae-biyong",
     category: "49재",
     title: "49재, 얼마 나와요?",
-    desc: "바가지 없는 가격 총정리. 절충형까지 다 안내.",
+    desc: "규모별·사찰별 49재 비용을 투명하게. 절충형까지 한눈에 정리.",
     readTime: "4분",
   },
   {
@@ -38,19 +38,40 @@ const articles = [
     slug: "bonandang",
     category: "납골봉안당",
     title: "일반 납골당 vs 사찰 봉안당",
-    desc: "뭐가 다른지, 왜 절이 나은지. 한 방에 정리.",
+    desc: "무엇이 다른지, 어떤 분께 맞는지. 차이를 한눈에 정리.",
     readTime: "3분",
   },
   {
     slug: "49jae-meaning",
     category: "49재",
     title: "왜 하필 49일일까",
-    desc: "7번의 심판, 중유의 개념. 철학 빠르게 훑기.",
+    desc: "7번의 심판과 중유 — 49재에 담긴 불교적 시간관을 정리합니다.",
+    readTime: "5분",
+  },
+  {
+    slug: "mixed-religion",
+    category: "가족 의사결정",
+    title: "기독교 집안인데 일부만 제사를 원해요",
+    desc: "종교가 다른 가족 사이에서 제사를 어떻게 풀어야 할지 — 흔한 케이스와 선택지를 정리합니다.",
+    readTime: "4분",
+  },
+  {
+    slug: "overseas-family",
+    category: "가족 의사결정",
+    title: "해외 거주 중인데, 부모님 기일은 어떡하죠?",
+    desc: "직접 참석이 어려운 자녀가 제사를 챙기는 방법 — 위탁·원격 참배·절충안을 안내합니다.",
+    readTime: "4분",
+  },
+  {
+    slug: "sibling-conflict",
+    category: "가족 의사결정",
+    title: "형제 간 의견이 갈릴 때, 어떻게 정리하나요?",
+    desc: "장남이 모든 부담을 지던 시대는 지났습니다. 흔한 갈등 유형과 합의 방법을 차분히 정리합니다.",
     readTime: "5분",
   },
 ];
 
-const categories = ["전체", "제사 문화", "제사 위탁", "49재", "천도재", "납골봉안당"];
+const categories = ["전체", "제사 문화", "제사 위탁", "49재", "천도재", "납골봉안당", "가족 의사결정"];
 
 export default function GuidePage() {
   const [selectedCategory, setSelectedCategory] = useState("전체");
@@ -90,12 +111,12 @@ export default function GuidePage() {
               제사 문화,
               <br />
               <span className="font-latin" style={{ color: "var(--gold-400)", fontStyle: "italic" }}>
-                바르게 알려 드립니다.
+                차분히 알려 드립니다.
               </span>
             </h1>
             <p style={{ color: "#C9C2AE", fontSize: 17, lineHeight: 1.9, maxWidth: 640 }}>
-              제사가 처음이어도 상관없습니다. 궁금한 거 여기 다 있어요. 제사·49재·천도재·납골봉안까지
-              쉽고 투명하게 정리해 드립니다.
+              제사가 처음이어도 괜찮습니다. 제사·49재·천도재·납골봉안에 관해 자주 받는 질문을 한곳에 모아,
+              차분히 안내드립니다.
             </p>
           </div>
         </section>
@@ -231,7 +252,7 @@ export default function GuidePage() {
                   marginBottom: 28,
                 }}
               >
-                전화 한 통이 제일 빠릅니다.
+                폼 한 장이 가장 빠른 길입니다. 보통 24시간 안에 회신드립니다.
               </p>
               <Link
                 href="/contact"

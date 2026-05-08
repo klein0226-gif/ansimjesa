@@ -29,6 +29,18 @@ const articleMeta: Record<string, { title: string; description: string }> = {
     title: "49일, 왜 49일인가요? — 불교의 49재 의미",
     description: "7번의 7일 심판, 중유의 개념. 불교에서 49재를 지내는 철학적 이유를 쉽게 설명합니다.",
   },
+  "mixed-religion": {
+    title: "기독교 집안인데 일부만 제사를 원해요",
+    description: "종교가 다른 가족 사이에서 제사·추도를 풀어가는 방법. 흔한 케이스와 선택할 수 있는 방식을 정리합니다.",
+  },
+  "overseas-family": {
+    title: "해외 거주 중인데, 부모님 기일은 어떡하죠?",
+    description: "직접 참석이 어려운 자녀가 정성을 잇는 방법 — 사찰 영구위탁·원격 참배·절충안을 정직하게 안내합니다.",
+  },
+  "sibling-conflict": {
+    title: "형제 간 의견이 갈릴 때, 어떻게 정리하나요?",
+    description: "장남이 모든 부담을 지던 시대는 지났습니다. 흔한 갈등 유형과 합의를 만드는 5단계를 안내합니다.",
+  },
 };
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -292,10 +304,10 @@ const articles: Record<string, {
         <h2 className={h2Class} style={h2Style}>이런 상황이라면 천도재를 고려하세요</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {[
-            { icon: "😔", title: "고인이 꿈에 자주 나타날 때", desc: "돌아가신 분이 반복적으로 꿈에 나타난다면 이승에 미련이 남아있다는 신호일 수 있습니다." },
-            { icon: "⚡", title: "갑작스러운 사고사인 경우", desc: "준비 없이 갑작스럽게 돌아가신 경우 한(恨)이 남아 있을 수 있어 천도재로 편히 보내드립니다." },
-            { icon: "🏚️", title: "집안에 불운이 반복될 때", desc: "사업 부진, 가족 분란, 원인 모를 소송 등 불운이 계속된다면 천도재로 집안의 기운을 바로잡습니다." },
-            { icon: "📅", title: "기일을 오래 챙기지 못한 경우", desc: "여러 해 동안 제사를 못 챙겼다면 천도재로 한꺼번에 정성을 올릴 수 있습니다." },
+            { icon: "😔", title: "고인이 꿈에 자주 나타날 때", desc: "돌아가신 분이 반복적으로 꿈에 나타날 때, 가족이 고인을 다시 떠올리게 되는 계기로 받아들이는 분들이 있습니다." },
+            { icon: "⚡", title: "갑작스러운 이별을 겪었을 때", desc: "준비 없이 갑작스럽게 돌아가신 경우, 가족이 마음을 정리하기 위해 천도재를 청하시는 경우가 있습니다." },
+            { icon: "🏚️", title: "삶의 어려움이 거듭될 때", desc: "사업 부진, 가족 간 갈등, 거듭되는 어려움이 이어질 때 — 마음을 정돈하기 위해 천도재를 청하시는 분들이 있습니다." },
+            { icon: "📅", title: "기일을 오래 챙기지 못한 경우", desc: "여러 해 동안 제사를 챙기지 못한 가족이, 합동 천도재로 한 번에 정성을 모으시는 경우가 있습니다." },
           ].map((item) => (
             <div
               key={item.title}
@@ -329,7 +341,7 @@ const articles: Record<string, {
                 { label: "시기", jae: "사망 직후 49일 이내", chundo: "언제든 가능" },
                 { label: "횟수", jae: "한 번 (사망 시 1회)", chundo: "여러 번 가능" },
                 { label: "기간", jae: "49일", chundo: "하루" },
-                { label: "목적", jae: "사후 심판 보조", chundo: "이승에 남은 영혼 천도" },
+                { label: "목적", jae: "불교 전통상 49일 중유 기간을 위한 의례", chundo: "전통상 영가의 천도를 발원하는 의례" },
               ].map((row) => (
                 <tr key={row.label}>
                   <td className="px-4 py-3 font-myeongjo" style={{ border: "1px solid var(--line)", fontSize: 14, color: "var(--ink)", fontWeight: 500 }}>
@@ -593,7 +605,8 @@ const articles: Record<string, {
           있도록 도움이 된다는 것입니다.
         </p>
         <p style={bodyStyle}>
-          이것이 바로 49재를 지내는 가장 본질적인 이유입니다. 마지막으로 해드릴 수 있는 효도인 셈입니다.
+          이것이 49재를 지내는 핵심적인 의미입니다. 가족이 고인을 위해 마음을 모으는 마지막 49일 — 그 시간을
+          정성껏 지나는 일이라 전해집니다.
         </p>
 
         <h2 className={h2Class} style={h2Style}>49재 절차</h2>
@@ -601,10 +614,10 @@ const articles: Record<string, {
           {[
             { title: "시련(侍輦)", desc: "영가(영혼)를 영단에 초청합니다." },
             { title: "대령(對靈)", desc: "의식 진행 내용을 영가에게 고합니다." },
-            { title: "관욕(灌浴)", desc: "영가의 업장을 씻겨드립니다. 가장 먼저, 가장 중요한 의식입니다." },
+            { title: "관욕(灌浴)", desc: "영가의 업장을 씻기 위한 의식입니다. 가장 먼저 진행되는 핵심 단계입니다." },
             { title: "헌공(獻供)", desc: "영가와 불보살에게 공양을 올립니다." },
             { title: "신중헌공(神衆獻供)", desc: "천지신명에게 선처를 기원합니다." },
-            { title: "봉송(奉送)", desc: "영가를 극락으로 환송합니다." },
+            { title: "봉송(奉送)", desc: "극락왕생을 발원하며 영가를 환송하는 의식입니다." },
           ].map((item, i) => (
             <li key={item.title} className="flex gap-3">
               <span style={{ ...stepBadgeStyle, width: 28, height: 28, fontSize: 12 }}>{i + 1}</span>
@@ -621,6 +634,284 @@ const articles: Record<string, {
         <ArticleCTA
           title="49재를 준비하고 계신가요?"
           desc="상황에 맞는 사찰과 진행 방식을 안내해드립니다."
+        />
+      </div>
+    ),
+  },
+
+  "mixed-religion": {
+    category: "가족 의사결정",
+    title: "기독교 집안인데 일부만 제사를 원해요",
+    readTime: "4분",
+    content: (
+      <div className="space-y-6">
+        <p style={leadStyle}>
+          기독교 신앙과 전통 제사 풍습이 한 가족 안에 섞여 있는 경우는 한국에서 드물지 않습니다.
+          무엇이 정답인지를 가르는 글이 아니라, 갈등을 줄이며 가족 모두가 마음 편할 수 있는
+          선택지를 함께 정리해 드립니다.
+        </p>
+
+        <h2 className={h2Class} style={h2Style}>흔한 케이스 3가지</h2>
+        <div className="space-y-4">
+          {[
+            {
+              label: "케이스 1",
+              title: "부모는 기독교, 자녀가 전통 제사를 원하는 경우",
+              desc: "부모님이 살아계실 때 기독교 신앙을 가지셨더라도, 자녀가 부모를 기리는 방식으로 제사를 원할 수 있습니다.",
+            },
+            {
+              label: "케이스 2",
+              title: "조부모·부모는 제사를 원했지만, 자녀 세대 일부가 기독교인 경우",
+              desc: "형제 중 한 명만 교회를 다닐 때 흔히 생기는 갈등입니다. 합의 방법은 형제 갈등 가이드를 함께 보세요.",
+            },
+            {
+              label: "케이스 3",
+              title: "한 가족 안에서 제사파·추도식파가 나뉘는 경우",
+              desc: "각자의 신앙을 존중하면서 부모를 기리는 행사를 함께 또는 따로 어떻게 진행할지 결정해야 합니다.",
+            },
+          ].map((item) => (
+            <div
+              key={item.label}
+              style={{
+                padding: 22,
+                background: "var(--paper)",
+                border: "1px solid var(--line)",
+              }}
+            >
+              <span
+                className="font-latin inline-block"
+                style={{
+                  padding: "4px 10px",
+                  fontSize: 11,
+                  letterSpacing: "0.18em",
+                  background: "var(--navy-800)",
+                  color: "var(--gold-400)",
+                  border: "1px solid var(--gold-500)",
+                  marginBottom: 10,
+                  fontStyle: "italic",
+                }}
+              >
+                {item.label}
+              </span>
+              <p
+                className="font-myeongjo"
+                style={{ fontWeight: 600, fontSize: 16, color: "var(--ink)", marginBottom: 6 }}
+              >
+                {item.title}
+              </p>
+              <p style={{ fontSize: 14, color: "var(--ink-soft)", lineHeight: 1.8 }}>{item.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <h2 className={h2Class} style={h2Style}>선택할 수 있는 방식</h2>
+        <ul className="space-y-3">
+          {[
+            "전통 제사를 원하는 가족은 사찰 영구위탁으로, 기독교 가족은 추도예배로 — 같은 날 또는 다른 날 각자 진행",
+            "사찰 봉안당에 안치한 후, 양측 가족이 각자 방식으로 참배 (봉안당 자체는 종교 행위를 강요하지 않는 곳이 많습니다)",
+            "형제가 합의해 한 명이 사찰 위탁을 진행하고, 다른 형제는 별도 추모하는 방식",
+          ].map((item) => (
+            <li key={item} className="flex items-start gap-3" style={bodyStyle}>
+              <span style={{ color: "var(--gold-500)", marginTop: 2, flexShrink: 0 }}>•</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+
+        <h2 className={h2Class} style={h2Style}>사찰에 상황을 미리 알리는 것이 좋은 이유</h2>
+        <p style={bodyStyle}>
+          가족 일부가 기독교라는 점을 사찰에 미리 말씀드리면, 안내 톤이나 절차를 조정해 드리는
+          경우가 많습니다. 추도식·제사·봉안 중 어떤 형식이든 가능한지는 사찰별로 다르므로
+          상담 단계에서 함께 의논하시는 편이 좋습니다.
+        </p>
+
+        <ArticleCTA
+          title="가족마다 입장이 다른가요?"
+          desc="상황을 들려주시면, 갈등을 줄이는 선택지를 함께 정리해 드립니다."
+        />
+      </div>
+    ),
+  },
+
+  "overseas-family": {
+    category: "가족 의사결정",
+    title: "해외 거주 중인데, 부모님 기일은 어떡하죠?",
+    readTime: "4분",
+    content: (
+      <div className="space-y-6">
+        <p style={leadStyle}>
+          직장·결혼·이민으로 해외에 거주하는 자녀가 점점 늘고 있습니다. 직접 참석하지 못한다는
+          이유로 죄책감을 느끼시는 분들이 많지만, 거리와 정성은 비례하지 않습니다.
+          현실적으로 선택할 수 있는 방식을 정리해 드립니다.
+        </p>
+
+        <h2 className={h2Class} style={h2Style}>현실적인 방식 4가지</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {[
+            {
+              num: "1",
+              title: "사찰 영구위탁",
+              desc: "기일마다 사찰에서 제사를 모시고 사진·영상으로 결과를 전달받습니다. 직접 참석은 0회로도 진행 가능합니다.",
+            },
+            {
+              num: "2",
+              title: "원격 참배 / 사진·영상 보고",
+              desc: "사찰에 따라 화상 참배를 지원하거나 진행 영상을 제공받을 수 있습니다. 사전에 사찰과 협의가 필요합니다.",
+            },
+            {
+              num: "3",
+              title: "기일에 맞춰 현지에서 별도 추모",
+              desc: "한국에서 사찰이 진행하는 시간에 맞춰, 해외 거주지에서도 따로 마음을 담는 시간을 갖는 방식입니다.",
+            },
+            {
+              num: "4",
+              title: "한국 방문 시 합동 추모",
+              desc: "장기 미참여한 기일을 한 번에 정리하기 위해, 천도재 또는 합동 추모를 따로 의뢰할 수 있습니다.",
+            },
+          ].map((item) => (
+            <div
+              key={item.num}
+              style={{
+                padding: 22,
+                background: "var(--paper)",
+                border: "1px solid var(--line)",
+              }}
+            >
+              <div className="flex items-center gap-3" style={{ marginBottom: 10 }}>
+                <span style={{ ...stepBadgeStyle, width: 28, height: 28, fontSize: 12 }}>{item.num}</span>
+                <p
+                  className="font-myeongjo"
+                  style={{ fontWeight: 600, fontSize: 16, color: "var(--ink)" }}
+                >
+                  {item.title}
+                </p>
+              </div>
+              <p style={{ fontSize: 14, color: "var(--ink-soft)", lineHeight: 1.8 }}>{item.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <h2 className={h2Class} style={h2Style}>가장 흔한 죄책감, 정직하게 짚어 보면</h2>
+        <p style={bodyStyle}>
+          멀리 산다고 해서 불효가 되는 것은 아닙니다. 부모님이 자녀의 안위를 가장 우선하셨다면,
+          무리하게 한국을 오가는 것보다 안정적으로 살아가는 모습이 부모님께도 더 마음 편한 일일
+          수 있습니다. 사찰 영구위탁은 이 현실을 인정한 위에 정성을 잇는 방식 중 하나일 뿐,
+          정답은 가족마다 다릅니다.
+        </p>
+
+        <h2 className={h2Class} style={h2Style}>사찰과 의논해 두면 좋은 사항</h2>
+        <ul className="space-y-3">
+          {[
+            "시차에 맞춘 진행 시간 조정 가능 여부",
+            "사진·영상 등 보고 방식과 전달 채널 (이메일·메신저 등)",
+            "한국 방문 일정에 맞춘 별도 의례 가능 여부",
+            "비용 송금 방법 (해외 송금·국내 가족 대납 등)",
+          ].map((item) => (
+            <li key={item} className="flex items-start gap-3" style={bodyStyle}>
+              <span style={{ color: "var(--gold-500)", marginTop: 2, flexShrink: 0 }}>•</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+
+        <ArticleCTA
+          title="해외 거주 중이신가요?"
+          desc="시차·연락 방식·진행 보고까지, 처음부터 함께 설계해 드립니다."
+        />
+      </div>
+    ),
+  },
+
+  "sibling-conflict": {
+    category: "가족 의사결정",
+    title: "형제 간 의견이 갈릴 때, 어떻게 정리하나요?",
+    readTime: "5분",
+    content: (
+      <div className="space-y-6">
+        <p style={leadStyle}>
+          장남이 제사를 모두 책임지던 시대는 사실상 지났습니다. 형편·종교·세대 차이가 얽혀
+          제사·49재·봉안 결정에서 갈등이 생기는 일이 흔합니다. 정답을 강요하기보다,
+          합의를 만드는 절차를 안내드립니다.
+        </p>
+
+        <h2 className={h2Class} style={h2Style}>흔한 갈등 4가지 유형</h2>
+        <ul className="space-y-3">
+          {[
+            { k: "비용 분담", v: "누가 얼마나 부담할지. 형편 차이가 클 때 특히 첨예합니다." },
+            { k: "주관자 문제", v: "누가 진행을 챙길지. 장남에게 자동 부여되던 책임이 모호해진 시대입니다." },
+            { k: "종교·신념 차이", v: "형제 중 일부가 기독교인 경우. 별도 가이드를 함께 보세요." },
+            { k: "세대 승계", v: "자녀 세대로 어떻게 이어갈지. 미루다 보면 다음 세대에 같은 갈등이 반복됩니다." },
+          ].map((item) => (
+            <li key={item.k} className="flex items-start gap-3" style={bodyStyle}>
+              <span style={{ color: "var(--gold-500)", marginTop: 2, flexShrink: 0 }}>•</span>
+              <span>
+                <strong style={{ color: "var(--ink)" }}>{item.k}</strong> — {item.v}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        <h2 className={h2Class} style={h2Style}>합의를 만드는 5단계</h2>
+        <ol className="space-y-5">
+          {[
+            {
+              step: "1",
+              title: "현재 상황 정리",
+              desc: "지금까지 누가 무엇을 챙겨왔는지 사실관계를 먼저 공유합니다. 감정보다 사실이 먼저입니다.",
+            },
+            {
+              step: "2",
+              title: "각자 가능한 부담 솔직히 공유",
+              desc: "비용·시간·참석 여부를 솔직하게 말합니다. 무리한 약속은 다음 갈등의 씨앗이 됩니다.",
+            },
+            {
+              step: "3",
+              title: "형식보다 본질 합의",
+              desc: "제사 형식은 다양합니다. 모두가 동의할 수 있는 본질(부모를 기억하는 것)을 먼저 합의합니다.",
+            },
+            {
+              step: "4",
+              title: "외부 위탁(사찰)을 옵션으로 검토",
+              desc: "사찰 영구위탁은 비용 분담이 명확하고, 누가 주관인지 다툴 일이 줄어듭니다. 갈등을 줄이는 선택지 중 하나입니다.",
+            },
+            {
+              step: "5",
+              title: "결정 사항 글로 기록",
+              desc: "구두 합의는 시간이 지나면 흐려집니다. 메모·메신저·계약서로 남겨두면 다음 세대 갈등도 줄어듭니다.",
+            },
+          ].map((item) => (
+            <li key={item.step} className="flex gap-4">
+              <span style={stepBadgeStyle}>{item.step}</span>
+              <div>
+                <p
+                  className="font-myeongjo"
+                  style={{ fontWeight: 600, fontSize: 16, color: "var(--ink)" }}
+                >
+                  {item.title}
+                </p>
+                <p style={{ ...bodyStyle, fontSize: 14, marginTop: 4 }}>{item.desc}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        <h2 className={h2Class} style={h2Style}>사찰 위탁이 갈등 해소에 도움이 되는 이유</h2>
+        <ul className="space-y-3">
+          {[
+            "비용 분담이 명확해집니다 — 사찰 청구서 1장에 합의된 비율로 분담",
+            "주관자 분쟁이 사라집니다 — 사찰이 대신 진행하므로 누가 책임지는지 다툴 일이 없습니다",
+            "모두에게 같은 보고 — 사진·영상이 모든 형제에게 동일하게 전달되어 정보 비대칭이 줄어듭니다",
+          ].map((item) => (
+            <li key={item} className="flex items-start gap-3" style={bodyStyle}>
+              <span style={{ color: "var(--gold-500)", marginTop: 2, flexShrink: 0 }}>✓</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+
+        <ArticleCTA
+          title="형제 간 합의가 어려우신가요?"
+          desc="비슷한 고민을 정리한 가이드를 토대로, 갈등을 줄이는 선택지를 함께 정리해 드립니다."
         />
       </div>
     ),
