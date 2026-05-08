@@ -664,7 +664,7 @@ export default function Home() {
                       className="font-myeongjo"
                       style={{ fontWeight: 600, fontSize: 22, letterSpacing: "-0.01em", margin: "0 0 14px" }}
                     >
-                      {t.name} <span style={{ color: "var(--ink-mute)", fontWeight: 400, fontSize: 14 }}>· {t.region}</span>
+                      {t.name}
                     </h3>
                     <p style={{ fontSize: 14, color: "var(--ink-soft)", lineHeight: 1.75 }}>{t.oneliner}</p>
                     <div
