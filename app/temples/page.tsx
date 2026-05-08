@@ -4,12 +4,12 @@ import Footer from "@/components/Footer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "사찰 안내 — 경남 네 곳의 계약 사찰",
+  title: "사찰 안내 — 엄선된 계약 사찰 네 곳",
   description:
-    "현재 경남의 계약 사찰 4곳(덕운사·수암사·마애사·백천사). 전국 어디서든 상담 가능, 계약 사찰은 추후 점점 확대 예정. 각 사찰의 연혁·전각·봉안 시설을 한눈에 비교하세요.",
+    "엄선된 계약 사찰 네 곳(덕운사·수암사·마애사·백천사). 전국 어디서든 상담 가능, 계약 사찰은 추후 점점 확대 예정. 각 사찰의 연혁·전각·봉안 시설을 한눈에 비교하세요.",
   openGraph: {
     title: "사찰 안내 — 안심제사",
-    description: "현재 경남의 계약 사찰 4곳. 전국 상담 가능, 계약 사찰은 추후 점점 확대 예정.",
+    description: "엄선된 계약 사찰 네 곳. 전국 상담 가능, 계약 사찰은 추후 점점 확대 예정.",
     url: "https://ansimjesa.co.kr/temples",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
@@ -31,7 +31,7 @@ const temples = [
       "극락전 · 기일·49재·천도재 전용",
       "김해 시내에서 차로 15분",
     ],
-    best: "김해·부산 거주자, 접근성과 프라이버시를 함께 원하는 분",
+    best: "접근성과 프라이버시를 함께 원하는 분",
     price: "제사 위탁 연 30만원 · 영구위탁 150만원",
     photo: "/temples/deokunsa_hero.jpg",
     tag: "ACCESS · 접근성",
@@ -125,7 +125,7 @@ export default function TemplesPage() {
                 maxWidth: 900,
               }}
             >
-              경남 네 곳의 엄선된 사찰,
+              엄선된 계약 사찰 네 곳,
               <br />
               <span className="font-latin" style={{ color: "var(--gold-400)", fontStyle: "italic" }}>
                 정중하게 연결해 드립니다.

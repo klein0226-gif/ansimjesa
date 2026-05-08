@@ -269,7 +269,7 @@ const articles: Record<string, {
         <h2 className={h2Class} style={h2Style}>비용에 영향을 주는 요소</h2>
         <ul className="space-y-3">
           {[
-            "사찰의 규모와 지역 (서울일수록 비쌈)",
+            "사찰의 규모와 지역 (대도시일수록 비쌈)",
             "참여 스님의 수 (여러 스님이 참여할수록 비용 증가)",
             "제수 음식 포함 여부",
             "특별 경전 독송 여부",

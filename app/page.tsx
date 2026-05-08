@@ -175,7 +175,7 @@ export default function Home() {
                   >
                     일 년에 단 하루, 기다리고 계신 분을 위해.
                     <br />
-                    경남 4개 사찰과 1:1로 연결해
+                    엄선된 계약 사찰과 1:1로 연결해
                     <br />
                     제사·49재·천도재·납골봉안을 정성껏 모십니다.
                   </p>
@@ -426,7 +426,7 @@ export default function Home() {
                   </p>
                   <p style={{ fontSize: 15, color: "var(--ink-soft)", lineHeight: 1.9, marginBottom: 20 }}>
                     바쁜 일상, 해외 거주, 연세 드신 부모님을 모시는 상황 — 직접 제를 모시기 어려운 분들 곁에
-                    안심제사가 함께합니다. 경남 4개 사찰에서 스님이 직접 집전하고, 진행 전 과정은 사진과 영상으로
+                    안심제사가 함께합니다. 계약 사찰에서 스님이 직접 집전하고, 진행 전 과정은 사진과 영상으로
                     보고드립니다.
                   </p>
                   <p style={{ fontSize: 15, color: "var(--ink-soft)", lineHeight: 1.9 }}>
