@@ -50,8 +50,8 @@ const temples: Array<{
   {
     slug: "suamsa",
     numeral: "Ⅱ",
-    name: "합천 수암사",
-    region: "경남 합천",
+    name: "의령 수암사",
+    region: "경남 의령",
     tag: "HERITAGE · 보물 · 333관음",
     oneliner:
       "경내를 장식하는 333위 노천 관음불과, 고려 석탑·승탑 두 점의 보물이 함께 자리한 사찰입니다. 고인을 추모하며 아름다운 산책길 속에서 마음의 위로를 얻을 수 있습니다.",
@@ -68,8 +68,8 @@ const temples: Array<{
   {
     slug: "maesa",
     numeral: "Ⅲ",
-    name: "거창 마애사",
-    region: "경남 거창",
+    name: "함안 마애사",
+    region: "경남 함안",
     tag: "HERITAGE · 통일신라 마애불",
     oneliner:
       "방어산 절벽 암면에 새겨진 통일신라 마애불을 품은 도량과 인연을 이은 사찰입니다. 너비 7m·높이 5m의 거대한 삼존불 앞에서 격식 있고 품격 높은 제사를 모십니다.",

@@ -46,8 +46,8 @@ const temples = [
   },
   {
     slug: "suamsa",
-    name: "합천 수암사",
-    region: "경남 합천",
+    name: "의령 수암사",
+    region: "경남 의령",
     tag: "HERITAGE · 보물 · 333관음",
     oneliner:
       "고려 보물 두 점과 333위 노천 관음불 산책길이 함께 자리한 자연 속 사찰.",
@@ -55,8 +55,8 @@ const temples = [
   },
   {
     slug: "maesa",
-    name: "거창 마애사",
-    region: "경남 거창",
+    name: "함안 마애사",
+    region: "경남 함안",
     tag: "HERITAGE · 통일신라 마애불",
     oneliner:
       "통일신라 801년에 새겨진 마애약사여래삼존입상을 품은 격식 있는 도량.",

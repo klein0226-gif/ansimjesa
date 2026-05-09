@@ -100,8 +100,8 @@ export default function Footer() {
             </h5>
             <ul className="flex flex-col gap-3">
               <li><Link href="/temples/deokunsa" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">김해 덕운사</Link></li>
-              <li><Link href="/temples/suamsa" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">합천 수암사</Link></li>
-              <li><Link href="/temples/maesa" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">거창 마애사</Link></li>
+              <li><Link href="/temples/suamsa" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">의령 수암사</Link></li>
+              <li><Link href="/temples/maesa" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">함안 마애사</Link></li>
               <li><Link href="/temples/baekcheonsa" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">사천 백천사</Link></li>
             </ul>
           </div>
