@@ -27,7 +27,6 @@ const temples: Array<{
   oneliner: string;
   features: Feature[];
   best: string;
-  price: string;
   Visual: () => React.ReactElement;
 }> = [
   {
@@ -44,7 +43,6 @@ const temples: Array<{
       { text: "주차 편리" },
     ],
     best: "바쁜 직장인 · 김해/부산 거주자 · 편안한 분위기 선호",
-    price: "제사 영구위탁 150만원",
     Visual: DeokunsaSVG,
   },
   {
@@ -62,7 +60,6 @@ const temples: Array<{
       { text: "수려한 자연 경관 · 대규모 도량" },
     ],
     best: "보물 · 333관음 산책길 · 자연 속 힐링 선호",
-    price: "제사 영구위탁 150만원",
     Visual: SuamsaSVG,
   },
   {
@@ -80,7 +77,6 @@ const temples: Array<{
       { text: "격식 있는 천도재 · 영구 봉안 가능" },
     ],
     best: "보물 · 통일신라 마애불 · 격식 있는 추모",
-    price: "제사 영구위탁 150만원",
     Visual: MaesaSVG,
   },
   {
@@ -102,7 +98,6 @@ const temples: Array<{
       { text: "극락전 추모관 — 현대식 · 청결 · 부도탑 봉안 가능" },
     ],
     best: "보물 · 1,300년 고찰 · 시설과 전통 모두 중시",
-    price: "제사 영구위탁 150만원",
     Visual: BaekcheonsaSVG,
   },
 ];
@@ -315,45 +310,20 @@ export default function TemplesPage() {
                           </li>
                         ))}
                       </ul>
-                      <div
-                        className="mt-7 grid gap-6 sm:gap-8"
-                        style={{ gridTemplateColumns: "1fr 1fr" }}
-                      >
-                        <div>
-                          <div
-                            className="font-latin"
-                            style={{
-                              fontSize: 12,
-                              letterSpacing: "0.22em",
-                              color: "var(--gold-600)",
-                              marginBottom: 6,
-                              fontStyle: "italic",
-                            }}
-                          >
-                            BEST FOR
-                          </div>
-                          <div style={{ fontSize: 14, color: "var(--ink)" }}>{t.best}</div>
+                      <div className="mt-7">
+                        <div
+                          className="font-latin"
+                          style={{
+                            fontSize: 12,
+                            letterSpacing: "0.22em",
+                            color: "var(--gold-600)",
+                            marginBottom: 6,
+                            fontStyle: "italic",
+                          }}
+                        >
+                          BEST FOR
                         </div>
-                        <div>
-                          <div
-                            className="font-latin"
-                            style={{
-                              fontSize: 12,
-                              letterSpacing: "0.22em",
-                              color: "var(--gold-600)",
-                              marginBottom: 6,
-                              fontStyle: "italic",
-                            }}
-                          >
-                            REFERENCE PRICE
-                          </div>
-                          <div
-                            className="font-myeongjo"
-                            style={{ fontWeight: 600, color: "var(--gold-600)", fontSize: 16 }}
-                          >
-                            {t.price}
-                          </div>
-                        </div>
+                        <div style={{ fontSize: 14, color: "var(--ink)" }}>{t.best}</div>
                       </div>
                       <div className="mt-8">
                         <Link
