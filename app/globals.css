@@ -1,33 +1,54 @@
 @import "tailwindcss";
 
 :root {
-  /* Navy palette (primary) */
-  --navy-900: #0B1628;
-  --navy-800: #0F1A2E;
+  /* ---------- Brand palette (handoff redesign) ---------- */
+  /* Navy (primary surface dark) */
+  --navy: #0F1A2E;
+  --navy-deep: #0A1220;
+  --navy-soft: #1A2540;
+
+  /* Gold (accent) */
+  --gold: #B89968;
+  --gold-light: #D4B98A;
+  --gold-soft: rgba(184, 153, 104, 0.12);
+
+  /* Surface */
+  --bg: #FAFAF7;
+  --surface: #FFFFFF;
+  --surface-tint: #F5F2EC;
+
+  /* Text */
+  --ink: #1A1A1A;
+  --ink-soft: #4A4A4A;
+  --ink-muted: #7A7A7A;
+  --line: #E5E2DA;
+  --line-strong: #C9C5BB;
+
+  /* ---------- Legacy aliases (kept so unchanged pages keep working) ---------- */
+  /* Navy palette aliases — match new --navy / --navy-deep / --navy-soft */
+  --navy-900: #0B1628;        /* deepest navy used in hero/footer */
+  --navy-800: #0F1A2E;        /* same as --navy */
   --navy-700: #162544;
   --navy-600: #1E3258;
 
-  /* Gold palette (accent) */
+  /* Gold palette aliases — span same gold ramp */
   --gold-600: #A07E46;
-  --gold-500: #B89968;
-  --gold-400: #D4B98A;
+  --gold-500: #B89968;        /* same as --gold */
+  --gold-400: #D4B98A;        /* same as --gold-light */
   --gold-100: #F2E9D3;
 
-  /* Ivory / paper (surfaces) */
+  /* Ivory / paper aliases */
   --ivory: #F8F5EE;
   --ivory-2: #EFE9DA;
   --paper: #FBF9F3;
 
-  /* Ink (text) */
-  --ink: #15192A;
-  --ink-soft: #3B4254;
+  /* Ink aliases */
   --ink-mute: #6B7085;
 
   /* Lines */
-  --line: rgba(15, 26, 46, 0.12);
   --line-gold: rgba(184, 153, 104, 0.35);
 
-  /* Legacy aliases kept for any remaining consumers (privacy page uses --ochre/--cinnabar/--paper-deep) */
+  /* Legacy decorative tokens used by privacy page */
   --ochre: var(--gold-600);
   --cinnabar: var(--gold-600);
   --cinnabar-soft: var(--gold-500);
@@ -35,12 +56,17 @@
 
   --background: var(--paper);
   --foreground: var(--ink);
+
+  /* Typography stack */
+  --font-serif-ko: "Noto Serif KR", "Nanum Myeongjo", "Apple SD Gothic Neo", Georgia, serif;
+  --font-sans-ko: "Noto Sans KR", "Apple SD Gothic Neo", -apple-system, system-ui, sans-serif;
+  --font-serif-en: "Cormorant Garamond", "Times New Roman", "Noto Serif KR", Georgia, serif;
 }
 
 html, body {
   background: var(--paper);
   color: var(--ink);
-  font-family: "Noto Sans KR", "Apple SD Gothic Neo", system-ui, sans-serif;
+  font-family: var(--font-sans-ko);
   font-weight: 400;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -50,16 +76,16 @@ html, body {
 /* Font helpers */
 .font-serif,
 .font-myeongjo {
-  font-family: "Noto Serif KR", "Apple SD Gothic Neo", Georgia, serif;
+  font-family: var(--font-serif-ko);
 }
 
 .font-sans-kr,
 .font-gowun {
-  font-family: "Noto Sans KR", "Apple SD Gothic Neo", system-ui, sans-serif;
+  font-family: var(--font-sans-ko);
 }
 
 .font-latin {
-  font-family: "Cormorant Garamond", "Noto Serif KR", Georgia, serif;
+  font-family: var(--font-serif-en);
   font-style: italic;
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -67,7 +93,7 @@ html, body {
 
 /* Eyebrow (italic Cormorant with gold rule) */
 .eyebrow {
-  font-family: "Cormorant Garamond", "Noto Serif KR", Georgia, serif;
+  font-family: var(--font-serif-en);
   font-style: italic;
   font-weight: 500;
   font-size: 14px;
@@ -154,11 +180,74 @@ html, body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: "Noto Serif KR", serif;
+  font-family: var(--font-serif-ko);
   font-weight: 700;
   color: var(--gold-400);
   background: transparent;
   border: 1px solid var(--gold-500);
   letter-spacing: 0.02em;
   border-radius: 0;
+}
+
+/* ---------- Header desktop nav: gold underline slide-in ---------- */
+.nav-link {
+  position: relative;
+  display: inline-block;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: var(--gold-500);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-link:hover { color: var(--gold-400); }
+.nav-link:hover::after { transform: scaleX(1); }
+
+/* CTA pill in header */
+.nav-cta {
+  border: 1px solid var(--gold-500);
+  padding: 10px 22px;
+  color: var(--gold-400);
+  letter-spacing: 0.04em;
+  transition: background 200ms cubic-bezier(0.4, 0, 0.2, 1),
+              color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-cta:hover { background: var(--gold-500); color: var(--navy-900); }
+
+/* ---------- Mobile fullscreen overlay menu ---------- */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 49;
+  background: var(--navy-900);
+  color: #DDD6C2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 24px;
+}
+.mobile-menu a {
+  font-family: var(--font-serif-ko);
+  font-size: 24px;
+  letter-spacing: 0.02em;
+  color: #F1EBD8;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: mm-fade 320ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.mobile-menu a:nth-child(1) { animation-delay: 60ms; }
+.mobile-menu a:nth-child(2) { animation-delay: 120ms; }
+.mobile-menu a:nth-child(3) { animation-delay: 180ms; }
+.mobile-menu a:nth-child(4) { animation-delay: 240ms; }
+.mobile-menu a:nth-child(5) { animation-delay: 300ms; }
+@keyframes mm-fade {
+  to { opacity: 1; transform: translateY(0); }
 }

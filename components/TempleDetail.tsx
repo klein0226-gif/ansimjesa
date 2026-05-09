@@ -22,7 +22,6 @@ export type TempleDetailProps = {
   facilities: { title: string; body: string }[];
   stories: { title: string; body: string }[];
   best: string;
-  price: string;
   sources: string[];
 };
 
@@ -294,38 +293,8 @@ export default function TempleDetail(t: TempleDetailProps) {
             </section>
 
             <section className="mb-16">
-              <EyebrowTitle kicker="PRICE · 비용과 추천" title="참고 비용과 추천 대상" />
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div
-                  style={{
-                    padding: 28,
-                    background: "var(--navy-800)",
-                    color: "#EFE9DA",
-                    border: "1px solid var(--gold-500)",
-                  }}
-                >
-                  <div
-                    className="font-latin"
-                    style={{
-                      fontSize: 12,
-                      letterSpacing: "0.3em",
-                      color: "var(--gold-500)",
-                      marginBottom: 10,
-                      fontStyle: "italic",
-                    }}
-                  >
-                    REFERENCE PRICE
-                  </div>
-                  <div
-                    className="font-myeongjo"
-                    style={{ fontWeight: 600, fontSize: 18, color: "var(--gold-400)" }}
-                  >
-                    {t.price}
-                  </div>
-                  <p style={{ fontSize: 12, marginTop: 10, color: "#B8B09A" }}>
-                    최종 비용은 상담을 통해 안내해 드립니다.
-                  </p>
-                </div>
+              <EyebrowTitle kicker="BEST FOR · 추천 대상" title="이런 분께 권합니다" />
+              <div className="grid grid-cols-1 gap-6">
                 <div
                   style={{
                     padding: 28,

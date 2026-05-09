@@ -61,7 +61,6 @@ export default function DeokunsaPage() {
         },
       ]}
       best="접근성과 프라이버시를 함께 원하는 분"
-      price="제사 위탁 연 30만원 · 영구위탁 150만원"
       sources={["김해시청 문화관광", "BBS불교방송 뉴스", "덕운사 공식 홍보 자료"]}
     />
   );
