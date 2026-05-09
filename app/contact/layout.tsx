@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "안내 — 안심제사 정식 오픈 준비 중",
-  description: "안심제사 상담 신청 시스템은 현재 정식 오픈 준비 중입니다. 사찰 안내와 서비스 정보는 자유롭게 살펴보실 수 있습니다.",
+  title: "무료 상담 신청 — 안심제사",
+  description: "안심제사 무료 상담 신청. 사십구재·납골봉안·영구 위패 관련 문의를 24시간 이내 안내드립니다. 상담은 전액 무료이며 비공개로 처리됩니다.",
   openGraph: {
-    title: "안내 — 안심제사",
-    description: "정식 오픈 준비 중입니다. 곧 안내드리겠습니다.",
+    title: "무료 상담 신청 — 안심제사",
+    description: "사십구재·납골봉안·영구 위패 무료 상담. 24시간 이내 회신, 비공개 처리.",
     url: "https://ansimjesa.co.kr/contact",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },

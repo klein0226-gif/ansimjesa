@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer
       style={{
-        background: "var(--navy-900)",
+        background: "var(--navy-deep, #0A1220)",
         color: "#B8B09A",
         borderTop: "1px solid rgba(184,153,104,0.2)",
         padding: "80px 0 40px",
@@ -17,6 +17,7 @@ export default function Footer() {
             borderBottom: "1px solid rgba(184,153,104,0.2)",
           }}
         >
+          {/* Brand + tagline */}
           <div>
             <div className="flex items-center gap-3.5">
               <span
@@ -60,10 +61,11 @@ export default function Footer() {
               <br />
               안심제사가 대신 정성을 다해 챙겨드립니다.
               <br />
-              엄선된 계약 사찰 · 영구위탁 · 영구봉안 안내.
+              계약 사찰 · 영구위탁 · 영구봉안 안내.
             </p>
           </div>
 
+          {/* Services */}
           <div>
             <h5
               className="font-myeongjo mb-6"
@@ -74,16 +76,16 @@ export default function Footer() {
                 letterSpacing: "0.1em",
               }}
             >
-              SERVICES
+              서비스
             </h5>
             <ul className="flex flex-col gap-3">
-              <li><Link href="/services" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">제사 영구위탁</Link></li>
-              <li><Link href="/services" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">납골봉안당</Link></li>
               <li><Link href="/services" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">사십구재</Link></li>
-              <li><Link href="/services" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">천도재</Link></li>
+              <li><Link href="/services" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">납골봉안당</Link></li>
+              <li><Link href="/services" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">영구 위패</Link></li>
             </ul>
           </div>
 
+          {/* Temples */}
           <div>
             <h5
               className="font-myeongjo mb-6"
@@ -94,16 +96,17 @@ export default function Footer() {
                 letterSpacing: "0.1em",
               }}
             >
-              ABOUT
+              사찰 안내
             </h5>
             <ul className="flex flex-col gap-3">
-              <li><Link href="/temples" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">사찰 안내</Link></li>
-              <li><Link href="/guide" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">제사 문화 가이드</Link></li>
-              <li><Link href="/contact" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">무료 상담 신청</Link></li>
-              <li><Link href="/privacy" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">개인정보 처리방침</Link></li>
+              <li><Link href="/temples/deokunsa" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">김해 덕운사</Link></li>
+              <li><Link href="/temples/suamsa" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">합천 수암사</Link></li>
+              <li><Link href="/temples/maesa" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">거창 마애사</Link></li>
+              <li><Link href="/temples/baekcheonsa" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">사천 백천사</Link></li>
             </ul>
           </div>
 
+          {/* Contact */}
           <div>
             <h5
               className="font-myeongjo mb-6"
@@ -114,35 +117,27 @@ export default function Footer() {
                 letterSpacing: "0.1em",
               }}
             >
-              CONTACT
+              연락
             </h5>
             <ul className="flex flex-col gap-3">
               <li
                 className="font-myeongjo"
                 style={{
                   color: "var(--gold-500)",
-                  fontSize: 22,
-                  letterSpacing: "0.12em",
-                  opacity: 0.75,
+                  fontSize: 16,
+                  letterSpacing: "0.04em",
+                  opacity: 0.85,
                 }}
               >
-                開設備中
-              </li>
-              <li
-                className="font-latin"
-                style={{
-                  fontSize: 11,
-                  color: "var(--gold-500)",
-                  letterSpacing: "0.32em",
-                }}
-              >
-                OPENING SOON
+                개설 준비 중
               </li>
               <li className="text-[13px]" style={{ color: "#8D8672", lineHeight: 1.7 }}>
-                정식 오픈 시 번호와<br />
+                정식 오픈 시 전화·카카오
+                <br />
                 채널을 안내드립니다.
               </li>
-              <li className="text-[13px]" style={{ color: "#8D8672" }}>상담 전액 무료</li>
+              <li><Link href="/contact" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">무료 상담 신청</Link></li>
+              <li><Link href="/guide" className="text-[14px] hover:text-[color:var(--gold-400)] transition-colors">제사 문화 가이드</Link></li>
             </ul>
           </div>
         </div>
@@ -152,16 +147,13 @@ export default function Footer() {
           style={{ fontSize: 12, color: "#7A7360", letterSpacing: "0.04em" }}
         >
           <div>
-            © 2026 ANSIMJESA · ansimjesa.co.kr · All rights reserved ·{" "}
+            © 2026 안심제사 · ansimjesa.co.kr · All rights reserved ·{" "}
             <Link href="/privacy" className="underline hover:text-[color:var(--gold-400)]">
               개인정보 처리방침
             </Link>
           </div>
-          <div
-            className="font-latin"
-            style={{ color: "var(--gold-500)", letterSpacing: "0.2em" }}
-          >
-            KO · EN · 中文
+          <div className="text-[12px]" style={{ color: "#7A7360" }}>
+            상담 전액 무료 · 비공개 처리
           </div>
         </div>
       </div>
